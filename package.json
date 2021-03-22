@@ -6,16 +6,19 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-resize-detector": "^6.6.4",
     "react-scripts": "4.0.3",
+    "recharts": "^2.0.8",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "doc": "./node_modules/.bin/jsdoc src"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +37,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.13.10",
+    "babel-loader": "^8.1.0",
+    "jsdoc": "^3.6.6",
+    "sass": "^1.32.8",
+    "webpack": "^4.44.2"
   }
 }

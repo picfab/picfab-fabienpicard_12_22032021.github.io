@@ -1,0 +1,306 @@
+$primary : '#FF0000';
+.timing{
+    background: #FF0000;
+    aspect-ratio: 1 / 1;
+    width: 500px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    .recharts-legend-wrapper{
+        color: #fff;
+        opacity: .5;
+    }
+    text,.recharts-legend-wrapper{
+        fill:#fff;
+        fill-opacity: .5;
+    }
+    .recharts-cartesian-axis-tick-value {
+        transform: translate(0,-30px);
+    }
+    .recharts-line-curve{
+        stroke-linecap: round;
+    }
+    // .recharts-reference-area-rect{
+    //     stroke: #000;
+    //     outline:1px solid #000;
+    //     stroke-opacity: .1;
+    //     stroke-width: 5px;
+    //     outline: 3px;
+    // }
+}
+
+
+.intensity{
+    background: #282D30;
+    .recharts-polar-grid-angle {
+        display: none;
+    }
+    .recharts-text {
+        z-index: 1111;
+        position: absolute;
+        color: #fff;
+        fill: #fff;
+    }
+    .recharts-polar-angle-axis-tick:nth-of-type(4) .recharts-text{
+        transform: translate(0,20px);
+    }
+}
+
+.score{
+    background: #FBFBFB;
+    &__info{
+        width: 96px;
+
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 26px;
+        letter-spacing: 0px;
+        text-align: center;
+    }
+    &__value{
+        font-family: Roboto;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 26px;
+        letter-spacing: 0px;
+        text-align: center;
+        color: #000;
+    }
+
+
+
+
+}
+.activity{
+    margin: 5px;
+    background: #FBFBFB;
+    border-radius:5px;
+    width: 100%;
+    .recharts-wrapper{
+        aspect-ratio: 836 / 320;
+        width: 100% !important;
+        .recharts-surface{
+            width: 100%;
+        }
+    }
+    .legendActivity{
+        display: flex;
+        justify-content: space-between;
+        font-family: Roboto;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+        &__poids{
+            margin-right: 39px;
+        }
+        &__icon{
+            margin-right: 12px;
+        }
+    }
+    .tooltip{
+        background: #E60000;
+        font-family: Roboto;
+        color: #fff;
+        font-size: 7px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: center;
+        width: 39px;
+        height: 63px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.score,.timing,.intensity{
+    box-sizing: border-box;
+    margin: 5px;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border-radius: 5px;
+    .recharts-wrapper{
+        // width: 100% !important;
+        // height: 100% !important;
+        .recharts-surface{
+            width: 100%;
+            // top: -2px;
+            // position: relative;
+            // left: -3px;
+            height: 100%;
+        }
+    }
+    &__title{
+        font-family: Roboto;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+        margin:24px;
+    }
+}
+
+.info{
+    background: #FBFBFB;
+    border-radius: 5px;
+    display: flex;
+    padding: 32px;
+    margin-bottom: 39px;
+    &__content{
+        margin-left: 24px;
+        display: flex;
+        flex-direction: column;
+    }
+    &__value{
+        font-family: Roboto;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+    &__title{
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+}
+
+
+
+.content{
+    margin-left: 118px;
+    margin-top: 85px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 90px;
+    .infos{
+        width: 258px;
+    }
+    .graphs{
+        display: flex;
+        align-items: baseline;
+        flex: 1;
+        margin-right: 31px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .activity{
+        width: 100%;
+        margin-bottom: 28px;
+    }
+    .score,.timing,.intensity{
+        max-width: calc(100%/3 - 10px * 3);
+    }
+}
+
+
+.menu{
+    background: #020203;
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    top: 0;
+    &__list{
+        padding: 10px;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: #fff;
+        font-family: Roboto;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+
+    }
+}
+
+.menuVert{
+    background: #020203;
+    position: fixed;
+    top: 0;
+    max-width: 85px;
+    &__list{
+        box-sizing: border-box;
+        height: 100vh;
+        padding: 27px;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        // flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__elt{
+        margin-bottom: 20px;
+    }
+    &__credits{
+        position: absolute;
+        bottom: 0;
+        transform: rotate(-90deg);
+        transform-origin: top left;
+        color: #fff;
+        width: 250px;
+        font-family: Roboto;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+        left: 27px;
+    }
+}
+//:not(:nth-last-of-type())
+
+.header{
+    width: 100%;
+    margin-bottom: 77px;
+    &__title{
+        font-family: Roboto;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+    &__name{
+        color: #E60000;
+    }
+    &__message{
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+
+    }
+}
