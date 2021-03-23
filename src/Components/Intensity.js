@@ -1,5 +1,4 @@
-//https://recharts.org/en-US/examples/SimpleRadarChart
-
+import Spinner from './Spinner'
 import React, { useEffect, useRef, useState } from "react";
 import {
     Radar,
@@ -8,76 +7,45 @@ import {
     PolarAngleAxis,
 } from "recharts";
 
-const data = [
-    {
-        "value": 80,
-        "kind": 1
-    },
-    {
-        "value": 120,
-        "kind": 2
-    },
-    {
-        "value": 140,
-        "kind": 3
-    },
-    {
-        "value": 50,
-        "kind": 4
-    },
-    {
-        "value": 200,
-        "kind": 5
-    },
-    {
-        "value": 90,
-        "kind": 6
-    }
-];
 
-export default function Intensity() {
+export default function Intensity({user}) {
     const [width, setWidth] = useState(null)
     const graphRef = useRef(null);
+    const [data, setData] = useState(null)
+
+    useEffect(() => {
+        user.loadIntensity()
+            .then((user) => setData(user.intensity))
+    }, [user])
     useEffect(() => {
         const { offsetWidth } = graphRef.current
         if (width !== offsetWidth) {
-            console.log(offsetWidth);
             setWidth(offsetWidth)
         }
     }, [width])
+
     return (
         <div className="intensity"
             ref={graphRef}>
+            {!data ? <Spinner /> :
             <RadarChart
                 cx={width/2}
                 cy={width/2}
-                // outerRadius={150}
-                // innerRadius={30}
                 width={width}
                 height={width}
                 data={data}
                 margin={
-                    { top: 5, right: 5, bottom: 5, left: 5 }
+                    { top: 50, right: 50, bottom: 50, left: 50 }
                 }
             >
                 <PolarAngleAxis
-                    dataKey="kind"
-                    // axisLine={true}
-                    // innerRadius={200}
-                    // outerRadius={200}
-                    radius={20}
-                    axisLine={true}
-                    axisLineType={'circle'}
-                    tickLine={true}
-                    />
-                <PolarGrid
-                    // stroke="#fff"
-                    // innerRadius={200}
-                    // outerRadius={200}
-                    // polarAngles={[0,1,2,3,180]}
-                    // polarRadius={[10,50,100,150,200]}
-                    // gridType={'circle'}
+                    dataKey="label"
+                    tickFormatter={x=>{
+                        const element = data.find(elt=>elt.label===x)
+                        return element.labelfr
+                    }}
                 />
+                <PolarGrid />
                 <Radar
                     dataKey="value"
                     fill="#FF0101"
@@ -85,6 +53,7 @@ export default function Intensity() {
                     label={false}
                 />
             </RadarChart>
+            }
         </div>
     );
 }

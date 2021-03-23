@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Spinner from './Spinner'
 import {
     LineChart,
     Line,
@@ -9,18 +10,23 @@ import {
     Legend
 } from "recharts";
 
-
-
 const daysLetter = ['L','M','M','J','V','S','D']
 
-export default function Timing({sessions}) {
+export default function Timing({user}) {
     const [hover, setHover] = useState(null)
     const [width, setWidth] = useState(null)
     const graphRef = useRef(null);
+
+    const [sessions, setSessions] = useState(null)
+
+    useEffect(() => {
+        user.loadTiming()
+            .then((user) => {
+                setSessions(user.timing)})
+    }, [user])
     useEffect(() => {
         const { offsetWidth } = graphRef.current
         if (width !== offsetWidth) {
-            console.log(graphRef.current.getElementsByClassName('recharts-reference-area'));
             setWidth(offsetWidth)
         }
     }, [width])
@@ -47,9 +53,6 @@ export default function Timing({sessions}) {
 
     function ReferenceBands(props: any) {
         const { x } = props;
-        console.log(props);
-
-
         return (
             <path fillOpacity={.1} d={`M ${x},0 h ${width} v ${width} h -${width} Z`}></path>
         );
@@ -59,6 +62,7 @@ export default function Timing({sessions}) {
         <div className="timing"
             ref={graphRef}
         >
+            {!sessions ? <Spinner /> :
             <LineChart
                 width={width}
                 height={width}
@@ -70,8 +74,6 @@ export default function Timing({sessions}) {
                     dataKey="day"
                     height={1}
                     y={200}
-                    allowDataOverflow={true}
-                    tickFormatter={true}
                     type="number"
                     tickFormatter={newtick}
                     axisLine={false}
@@ -95,16 +97,6 @@ export default function Timing({sessions}) {
                     }}
                     content={renderTooltip}
                 />
-                {/* <ReferenceArea shape={<ReferenceBands />} />
-
-                <ReferenceArea
-                    x1={0}
-                    x2={8}
-                    y1={-20}
-                    y2={100}
-                    fill="#000"
-                    fillOpacity="0.1"
-                /> */}
 
                 {hover && <ReferenceArea
                     x1={hover}
@@ -134,13 +126,13 @@ export default function Timing({sessions}) {
                     type="natural"
                     dataKey="sessionLength"
                     strokeWidth={2}
-                    onMouseEnter={(e)=>console.log(e)}
                     stroke="#fff"
                     activeDot={{ r: 8 }}
                     connectNulls={true}
                     unit="min"
                 />
             </LineChart>
+            }
         </div>
     );
 }

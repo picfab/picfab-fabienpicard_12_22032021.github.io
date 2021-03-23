@@ -1,6 +1,7 @@
 //https://recharts.org/en-US/examples/SimpleBarChart
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from "react";
+import Spinner from './Spinner'
 import {
     BarChart,
     Bar,
@@ -11,58 +12,17 @@ import {
     Legend
 } from "recharts";
 
-const sessions = [
-    {
-        "day": "2020-07-01",
-        "kilogram": 80,
-        "calories": 240
-    },
-    {
-        "day": "2020-07-02",
-        "kilogram": 80,
-        "calories": 220
-    },
-    {
-        "day": "2020-07-03",
-        "kilogram": 81,
-        "calories": 280
-    },
-    {
-        "day": "2020-07-04",
-        "kilogram": 81,
-        "calories": 290
-    },
-    {
-        "day": "2020-07-05",
-        "kilogram": 80,
-        "calories": 160
-    },
-    {
-        "day": "2020-07-06",
-        "kilogram": 78,
-        "calories": 162
-    },
-    {
-        "day": "2020-07-07",
-        "kilogram": 76,
-        "calories": 390
-    }
-    ,
-    {
-        "day": "2020-07-07",
-        "kilogram": 76,
-        "calories": 390
-    },
-    {
-        "day": "2020-07-07",
-        "kilogram": 76,
-        "calories": 390
-    }
-]
 
-export default function Activity() {
-    const [width,setWidth] = useState(null)
+
+export default function Activity({user}) {
+    const [width, setWidth] = useState(null)
     const graphRef = useRef(null);
+    const [sessions, setSessions] = useState(null)
+
+    useEffect(()=>{
+        user.loadActivity()
+            .then((user) => setSessions(user.activity))
+    },[user])
     useEffect(() => {
         const { offsetWidth } = graphRef.current
         if (width !== offsetWidth){
@@ -70,7 +30,6 @@ export default function Activity() {
         }
     }, [width])
     const renderLegend = (props) => {
-        const { payload } = props;
         return (
             <div className="legendActivity">
                 <span className="legendActivity__title">Activité quotidienne</span>
@@ -109,7 +68,6 @@ export default function Activity() {
 
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
-            console.log(active, payload);
             return (
                 <div className="tooltip">
                     {payload.map((item, i) => <div key={i} className="tooltip__text">{item.value} {item.unit}</div>)}
@@ -125,58 +83,60 @@ export default function Activity() {
     return (
         <div
             ref={graphRef}
-            className="activity">
-            <BarChart
-
-                width={width}
-                height={width*38/100}
-                data={sessions}
-                margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5
-                }}
-            >
-                <CartesianGrid
-                    strokeDasharray="2 2"
-                    vertical={false}
-                // width={2000}
-                />
-                <XAxis
-                    dataKey="name"
-                    axisLine={true}
-                    tickLine={false}
-                />
-                <YAxis
-                    axisLine={false}
-                    tickLine={false}
-                    orientation={'right'}
-                />
-                <Tooltip
-                    content={<CustomTooltip />}
-                />
-                <Legend
-                    content={renderLegend}
-                    verticalAlign="top"
-                    align="right"
-                    height={80}
-                />
-                <Bar
-                    dataKey="kilogram"
-                    fill="#282D30"
-                    shape={<RenderBar />}
-                    barSize={7}
-                    unit={'kg'}
-                />
-                <Bar
-                    dataKey="calories"
-                    fill="#E60000"
-                    shape={<RenderBar />}
-                    barSize={7}
-                    unit={'Kcal'}
-                />
-            </BarChart>
+            className="activity"
+        >
+            {!sessions?<Spinner/>:
+                <BarChart
+                    width={width}
+                    height={width*38/100}
+                    data={sessions}
+                    margin={{
+                        top: 5,
+                        right: 30,
+                        left: 20,
+                        bottom: 5
+                    }}
+                >
+                    <CartesianGrid
+                        strokeDasharray="2 2"
+                        vertical={false}
+                    // width={2000}
+                    />
+                    <XAxis
+                        dataKey="name"
+                        axisLine={true}
+                        tickLine={false}
+                    />
+                    <YAxis
+                        axisLine={false}
+                        tickLine={false}
+                        orientation={'right'}
+                    />
+                    <Tooltip
+                        content={<CustomTooltip />}
+                    />
+                    <Legend
+                        content={renderLegend}
+                        verticalAlign="top"
+                        align="right"
+                        height={80}
+                    />
+                    <Bar
+                        dataKey="kilogram"
+                        fill="#282D30"
+                        shape={<RenderBar />}
+                        barSize={7}
+                        unit={'kg'}
+                    />
+                    <Bar
+                        dataKey="calories"
+                        fill="#E60000"
+                        shape={<RenderBar />}
+                        barSize={7}
+                        unit={'Kcal'}
+                    />
+                </BarChart>
+            }
         </div>
     );
 }
