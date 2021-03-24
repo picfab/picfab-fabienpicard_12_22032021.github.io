@@ -50,45 +50,54 @@ $primary : '#FF0000';
 
 .score{
     background: #FBFBFB;
-    &__info{
-        width: 96px;
-
-        font-family: Roboto;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 26px;
-        letter-spacing: 0px;
-        text-align: center;
+    line-height: 24px;
+    width: 100%;
+    color: grey;
+    .scoreLegend{
+        &__info{
+            width: 96px;
+            font-family: Roboto;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 26px;
+            letter-spacing: 0px;
+            text-align: center;
+        }
+        &__title{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #000;
+        }
+        &__value{
+            font-family: Roboto;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 26px;
+            letter-spacing: 0px;
+            text-align: center;
+            color: #000;
+        }
     }
-    &__value{
-        font-family: Roboto;
-        font-size: 26px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 26px;
-        letter-spacing: 0px;
-        text-align: center;
-        color: #000;
-    }
-
-
-
-
 }
 .activity{
     margin: 5px;
     background: #FBFBFB;
     border-radius:5px;
     width: 100%;
+    aspect-ratio: 836 / 320;
     .recharts-wrapper{
-        aspect-ratio: 836 / 320;
         width: 100% !important;
         .recharts-surface{
             width: 100%;
         }
     }
-    .legendActivity{
+
+}
+
+.legendActivity{
         display: flex;
         justify-content: space-between;
         font-family: Roboto;
@@ -116,13 +125,15 @@ $primary : '#FF0000';
         letter-spacing: 0px;
         text-align: center;
         width: 39px;
-        height: 63px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-}
+
+
+
+
 .score,.timing,.intensity{
     box-sizing: border-box;
     margin: 5px;
@@ -197,7 +208,7 @@ $primary : '#FF0000';
     }
     .graphs{
         display: flex;
-        align-items: baseline;
+        align-items: self-start;
         flex: 1;
         margin-right: 31px;
         margin-bottom: 30px;
@@ -207,9 +218,15 @@ $primary : '#FF0000';
     .activity{
         width: 100%;
         margin-bottom: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .score,.timing,.intensity{
         max-width: calc(100%/3 - 10px * 3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -376,3 +393,77 @@ $primary : '#FF0000';
         border-width: calc(60px / 7);
       }
     }
+
+
+
+.openApp {
+    &.bg{
+        background: rgba(0, 0, 0, 0.192);
+    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+//   font-size: 100%;
+//   font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote {
+  &:before, &:after {
+    content: '';
+    content: none; } }
+
+q {
+  &:before, &:after {
+    content: '';
+    content: none; } }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+// jsdoc
+
+
+.frame-content {
+    padding: 20px;
+    position: relative;
+}
+.container{
+    h1,h2,h3,h4,h5,h6,p,li{
+        font-size: 1.5em !important;
+    }
+}

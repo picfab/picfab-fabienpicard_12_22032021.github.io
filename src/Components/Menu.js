@@ -1,5 +1,16 @@
-import React from 'react'
 import Picto from './Picto'
+
+/**
+ * Create and display top Menu
+ * @module Menu
+ * @category Application block
+ * @component
+ * @example
+ * return (
+ *   <Menu/>
+ * )
+ */
+
 export default function Menu(){
     return <div className="menu">
         <ul className="menu__list">

@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from "react";
 import Spinner from './Spinner'
 import {
     LineChart,
@@ -9,21 +10,29 @@ import {
     ReferenceArea,
     Legend
 } from "recharts";
+const daysLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
 
-const daysLetter = ['L','M','M','J','V','S','D']
+/**
+ * Use Timing component for create the graph activity
+ * @module Timing
+ * @component
+ * @category Recharts
+ * @param {array} data
+ * @param {number} data.day
+ * @param {number} data.sessionLength
+ * @example
+ * const data = [{"day":1,"sessionLength":30},{"day":2,"sessionLength":40},{"day":3,"sessionLength":50},{"day":4,"sessionLength":30},{"day":5,"sessionLength":30},{"day":6,"sessionLength":50},{"day":7,"sessionLength":50}];
+ * return ( <Timing data={data}/> )
+ */
 
-export default function Timing({user}) {
+export default function Timing({data}) {
     const [hover, setHover] = useState(null)
     const [width, setWidth] = useState(null)
     const graphRef = useRef(null);
 
-    const [sessions, setSessions] = useState(null)
-
-    useEffect(() => {
-        user.loadTiming()
-            .then((user) => {
-                setSessions(user.timing)})
-    }, [user])
+    /**
+     * Set the with of this component
+     */
     useEffect(() => {
         const { offsetWidth } = graphRef.current
         if (width !== offsetWidth) {
@@ -31,27 +40,55 @@ export default function Timing({user}) {
         }
     }, [width])
 
-    const renderTooltip = (props) => {
+    /**
+     * Custom tooltip
+     * @param {object} props send by Tooltip
+     * @returns RenderTooltip
+     */
+    const RenderTooltip = (props) => {
         return <div>
             {props.payload[0] && `${props.payload[0].value} ${props.payload[0].unit}`}
         </div>
     }
-    const onMouseMove = (e) => {
+
+    /**
+     * Set x1 of ReferenceArea
+     * @param {object} e send by LineChart
+     */
+    const onMouseMoveLineChart = (e) => {
         setHover(e.activeLabel)
     }
-    const onMouseLeave = (e) => {
+
+    /**
+     * reset x1 of ReferenceArea
+     * @param {object} e send by LineChart
+     */
+    const onMouseLeaveLineChart = (e) => {
         setHover(null)
     }
 
-    const newtick =(val)=>{
-        return daysLetter[val - 1] ? daysLetter[val - 1]:''
+    /**
+     * Set the day tick
+     * @param {number} day number a the weekday
+     * @returns string or number
+     */
+    const newtick =(day)=>{
+        return daysLetter[day - 1] ? daysLetter[day - 1]:''
     }
 
+    /**
+     * @returns custom legend
+     */
     const renderLegend = ()=>{
         return 'Durée moyenne des sessions'
     }
 
-    function ReferenceBands(props: any) {
+    /**
+     * custom ReferenceArea when overlay
+     * @param {object} props from ReferenceArea
+     * @returns {object} ReferenceBands
+     */
+    function ReferenceBands(props) {
         const { x } = props;
         return (
             <path fillOpacity={.1} d={`M ${x},0 h ${width} v ${width} h -${width} Z`}></path>
@@ -62,13 +99,13 @@ export default function Timing({user}) {
         <div className="timing"
             ref={graphRef}
         >
-            {!sessions ? <Spinner /> :
+            {!data ? <Spinner /> :
             <LineChart
                 width={width}
                 height={width}
-                data={sessions}
-                onMouseMove={onMouseMove}
-                onMouseLeave={onMouseLeave}
+                data={data}
+                onMouseMove={onMouseMoveLineChart}
+                onMouseLeave={onMouseLeaveLineChart}
             >
                 <XAxis
                     dataKey="day"
@@ -95,7 +132,7 @@ export default function Timing({user}) {
                         padding:'7px',
                         width: '100px',
                     }}
-                    content={renderTooltip}
+                        content={<RenderTooltip/>}
                 />
 
                 {hover && <ReferenceArea
@@ -136,3 +173,10 @@ export default function Timing({user}) {
         </div>
     );
 }
+
+Timing.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        day: PropTypes.number.isRequired,
+        sessionLength: PropTypes.number.isRequired,
+    }))
+};

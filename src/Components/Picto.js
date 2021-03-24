@@ -1,7 +1,18 @@
 import PropTypes from 'prop-types';
 
+/**
+ * Create and display left vertical menu
+ * @module Picto
+ * @category Application block
+ * @component
+ * @example
+ * const type = 'calories';
+ * const color = 'blue';
+ * return (
+ *   <Picto type={type} color={color}/>
+ * )
+ */
 export default function Picto({type,color}) {
-    // return<div>dsfsfd</div>
     switch (type) {
         case 'logo':
             return <svg width="178" height="61" viewBox="0 0 178 61" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,8 +96,15 @@ export default function Picto({type,color}) {
 }
 
 Picto.propTypes = {
+    /**
+     * Icon :
+     * [logo, calories, proteines, glucides, lipides, lotus, swim, bike, muscu]
+     */
     type: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired
+    /**
+     * color by default is #FF0101
+     */
+    color: PropTypes.string
 };
 Picto.defaultProps = {
     color: '#FF0101'

@@ -1,5 +1,5 @@
+//https://github.com/shri/JSDoc-Style-Guide
 import React, { useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
 import Activity from './Components/Activity'
 import Score from './Components/Score'
 import Intensity from './Components/Intensity'
@@ -8,16 +8,33 @@ import Info from './Components/Info'
 import Menu from './Components/Menu'
 import MenuVertical from './Components/MenuVertical'
 import Header from './Components/Header'
-import './sass/main.scss'
 import FactoryUser from './Controller/FactoryUser'
 import Spinner from './Components/Spinner'
 
-function App() {
+/**
+ * the application component
+ * @module App
+ * @component
+ * @category Application block
+ * @example
+ * return ( <App/> )
+ */
+export default function App() {
   const [user,setUser] = useState(null)
+
+  /**
+   * set a new user
+   */
   useEffect(()=>{
     const factUser = new FactoryUser()
     factUser.CreateElement(18).then(newUser => {
       setUser(newUser)
+      newUser.loadActivity()
+        .then((user) => setUser({...user}))
+      newUser.loadIntensity()
+        .then((user) => setUser({ ...user }))
+      newUser.loadTiming()
+        .then((user) => setUser({ ...user }))
     })
   },[])
 
@@ -29,14 +46,14 @@ function App() {
       <div className="page-area">
         <MenuVertical/>
         <main className="content">
-          {!user ? <Spinner/>:
+          {!user ? <Spinner className="openApp bg"/>:
             <>
               <Header name={user.userInfos.firstName} message="Félicitation ! Vous avez explosé vos objectifs hier 👏"/>
               <div className="graphs">
-                <Activity user={user}/>
-                <Timing user={user} />
-                <Intensity user={user}/>
-                <Score user={user}/>
+                <Activity data={user.activity}/>
+                <Timing data={user.timing} />
+                <Intensity data={user.intensity}/>
+                <Score score={user.score}/>
               </div>
               <aside className="infos">
                 <Info value={`${user.keyData.calorieCount} kCal`} title="calories" />
@@ -53,11 +70,3 @@ function App() {
   );
 }
 
-App.propTypes = {
-  name: PropTypes.string.isRequired
-};
-App.defaultProps = {
-  name: 'bel inconnu'
-};
-
-export default App;

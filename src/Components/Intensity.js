@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import Spinner from './Spinner'
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
     Radar,
     RadarChart,
@@ -7,23 +8,30 @@ import {
     PolarAngleAxis,
 } from "recharts";
 
-
-export default function Intensity({user}) {
+/**
+ * Use Activity component for create the graph activity
+ * @module Intensity
+ * @component
+ * @category Recharts
+ * @param {object} param
+ * @param {object} props.user the current user object
+ * @example
+ * const data = [{"value":110,"kind":6,"label":"intensity","labelfr":"Intensité"},{"value":220,"kind":5,"label":"speed","labelfr":"Vitesse"},{"value":80,"kind":4,"label":"strength","labelfr":"Force"},{"value":80,"kind":3,"label":"endurance","labelfr":"Endurance"},{"value":240,"kind":2,"label":"energy","labelfr":"Force"},{"value":200,"kind":1,"label":"cardio","labelfr":"Cardio"}];
+ * return ( <Intensity data={data}/> )
+ */
+export default function Intensity({data}) {
+    console.log(data);
     const [width, setWidth] = useState(null)
     const graphRef = useRef(null);
-    const [data, setData] = useState(null)
-
-    useEffect(() => {
-        user.loadIntensity()
-            .then((user) => setData(user.intensity))
-    }, [user])
+    /**
+     * Set the with of this component
+     */
     useEffect(() => {
         const { offsetWidth } = graphRef.current
         if (width !== offsetWidth) {
             setWidth(offsetWidth)
         }
     }, [width])
-
     return (
         <div className="intensity"
             ref={graphRef}>
@@ -57,3 +65,11 @@ export default function Intensity({user}) {
         </div>
     );
 }
+
+Intensity.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        labelfr: PropTypes.string.isRequired,
+        value: PropTypes.number.isRequired,
+    }))
+};

@@ -1,17 +1,40 @@
-import requestOptions from './Headers'
-
+import { url, requestOptions} from './dataApp'
+/**
+ * Factory for create a new User a save all user data
+ * You can do this for create a factory :
+ * const factUser = new FactoryUser();
+ * factUser.CreateElement(userID);
+ * @see {@link CreateElement} for construct an user
+ * @function FactoryUser
+ * @method CreateElement
+ * @returns {object} A factory for construct an user
+ */
 export default function FactoryUser(){
+    /**
+     * Function for create a new instance
+     * @method CreateElement
+     * @see {@link FactoryUser} for create instance of this factory
+     * @param {number} id id of the user
+     * @returns user
+     */
+
     this.CreateElement = function (id) {
         const user = {id}
+        /**
+         * @param {string} slug endpoint of the API
+         * @param {func} modififyResponse function for return a good data schema
+         * @param {string} attrName the name of where data will save in user object
+         * @Promise user
+         */
         user.loadData = (slug, modififyResponse, attrName) => new Promise((resole, reject) => {
-            fetch(`http://localhost:3000/user/${user.id}/${slug}`, requestOptions)
+            fetch(`${url}/user/${user.id}/${slug}`, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     const newAttr = attrName ? attrName : slug.replaceAll('-', '')
                     user[newAttr] = user[modififyResponse](result.data)
                     setTimeout(() => {
                         resole(user)
-                    }, 1000);
+                    }, 2000);
                 })
                 .catch(error => {
                     console.log('error', error)
@@ -19,22 +42,45 @@ export default function FactoryUser(){
                 });
         })
 
+        /**
+         * Promise who return the data for graph Timing
+         * @Promise user
+         */
         user.loadTiming = () => new Promise((resole, reject) => {
             user.loadData('average-sessions', 'normalChange','timing')
-            .then(x=>resole(x))
-        })
-        user.loadActivity = () => new Promise((resole, reject) => {
-            user.loadData('activity', 'normalChange')
-            .then(x=>resole(x))
-        })
-        user.loadIntensity = () => new Promise((resole, reject) => {
-            user.loadData('performance',  'intensityChange','intensity')
-            .then(x=>resole(x))
+            .then(user=>resole(user))
         })
 
+        /**
+         * Promise who return the data for graph Activity
+         * @Promise user
+         */
+        user.loadActivity = () => new Promise((resole, reject) => {
+            user.loadData('activity', 'normalChange')
+            .then(user=>resole(user))
+        })
+
+        /**
+         * Promise who return the data for graph Intensity
+         * @Promise user
+         */
+        user.loadIntensity = () => new Promise((resole, reject) => {
+            user.loadData('performance',  'intensityChange','intensity')
+            .then(user=>resole(user))
+        })
+
+        /**
+         * return normal data
+         * @return data
+         */
         user.normalChange=(data)=>{
             return data.sessions
         }
+
+        /**
+         * return intensity data
+         * @return data
+         */
         user.intensityChange = (data) => {
             const order = ['intensity', 'speed', 'strength', 'endurance', 'energy','cardio']
             const translate = ['Intensité', 'Vitesse', 'Force', 'Endurance', 'Force','Cardio']
@@ -52,6 +98,11 @@ export default function FactoryUser(){
             })
             return newData
         }
+
+        /**
+         * return timing data
+         * @return data
+         */
         user.timingChange=(data)=>{
             const newData = data.sessions.map(x=>{
                 switch (x.day) {
@@ -89,14 +140,16 @@ export default function FactoryUser(){
         }
 
         return new Promise((resole, reject) => {
-            fetch(`http://localhost:3000/user/${user.id}`, requestOptions)
+            fetch(`${url}/user/${user.id}`, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     Object.assign(user, result.data)
                     if(!user.score){
                         user.score = user.todayScore ? user.todayScore:0
                     }
-                    resole(user)
+                    setTimeout(() => {
+                        resole(user)
+                    }, 2000);
                 })
                 .catch(error => {
                     console.log('error', error)

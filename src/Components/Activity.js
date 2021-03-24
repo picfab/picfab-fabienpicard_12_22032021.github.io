@@ -1,6 +1,5 @@
-//https://recharts.org/en-US/examples/SimpleBarChart
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Spinner from './Spinner'
 import {
     BarChart,
@@ -11,85 +10,46 @@ import {
     Tooltip,
     Legend
 } from "recharts";
+import { RenderTooltip, RenderBar, RenderLegend} from './GraphComponent/activity'
 
-
-
-export default function Activity({user}) {
+/**
+ * Use Activity component for create the graph activity
+ * See {@link ../module-Activity_RenderBar.html|qsdsdf} {@link Header} and [MyClass's foo property]{@link Activity/RenderBar} {@link Activity/RenderBar|aaaaa}.
+ * Also, check out {@link https://recharts.org/en-US/api/BarChart|recharts}
+ * @module Activity
+ * @component
+ * @category Recharts
+ * @param {array} data
+ * @param {string} data.date
+ * @param {number} data.kilogram
+ * @param {number} data.calories
+ * @example
+ * const data = [{"day":"2020-07-01","kilogram":70,"calories":240},{"day":"2020-07-02","kilogram":69,"calories":220},{"day":"2020-07-03","kilogram":70,"calories":280},{"day":"2020-07-04","kilogram":70,"calories":500},{"day":"2020-07-05","kilogram":69,"calories":160},{"day":"2020-07-06","kilogram":69,"calories":162},{"day":"2020-07-07","kilogram":69,"calories":390}];
+ * return ( <Activity data={data}/> )
+ */
+export default function Activity({data}) {
     const [width, setWidth] = useState(null)
     const graphRef = useRef(null);
-    const [sessions, setSessions] = useState(null)
-
-    useEffect(()=>{
-        user.loadActivity()
-            .then((user) => setSessions(user.activity))
-    },[user])
+    /**
+     * Set the width of this component
+     */
     useEffect(() => {
         const { offsetWidth } = graphRef.current
         if (width !== offsetWidth){
             setWidth(offsetWidth)
         }
     }, [width])
-    const renderLegend = (props) => {
-        return (
-            <div className="legendActivity">
-                <span className="legendActivity__title">Activité quotidienne</span>
-                <span className="legendActivity__values">
-                    <span className="legendActivity__poids">
-                        <svg className="legendActivity__icon" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M4 8C6.20914 8 8 6.20914 8 4C8 1.79086 6.20914 0 4 0C1.79086 0 0 1.79086 0 4C0 6.20914 1.79086 8 4 8Z" fill="#282D30" />
-                        </svg>
-                        Poids (kg)
-                    </span>
-                    <span className="legendActivity__cal">
-                        <svg className="legendActivity__icon" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M4 8C6.20914 8 8 6.20914 8 4C8 1.79086 6.20914 0 4 0C1.79086 0 0 1.79086 0 4C0 6.20914 1.79086 8 4 8Z" fill="#E60000" />
-                        </svg>
-                        Calories brûlées (kCal)
-                    </span>
-                </span>
-            </div>
-        );
-    }
-
-    const RenderBar = (props) => {
-        const { fill, x, y, width, height } = props;
-        return <g fill={fill}>
-            <rect y={y} x={x} width={width} height={height} />
-            <circle cx={x + width / 2} cy={y} r={width / 2} />
-        </g>
-    }
-    RenderBar.propTypes = {
-        fill: PropTypes.string,
-        x: PropTypes.number,
-        y: PropTypes.number,
-        width: PropTypes.number,
-        height: PropTypes.number,
-    };
-
-    const CustomTooltip = ({ active, payload, label }) => {
-        if (active && payload && payload.length) {
-            return (
-                <div className="tooltip">
-                    {payload.map((item, i) => <div key={i} className="tooltip__text">{item.value} {item.unit}</div>)}
-                </div>
-            );
-        }
-
-        return null;
-    };
-
-
 
     return (
         <div
             ref={graphRef}
             className="activity"
         >
-            {!sessions?<Spinner/>:
+            {!data?<Spinner/>:
                 <BarChart
                     width={width}
                     height={width*38/100}
-                    data={sessions}
+                    data={data}
                     margin={{
                         top: 5,
                         right: 30,
@@ -100,7 +60,6 @@ export default function Activity({user}) {
                     <CartesianGrid
                         strokeDasharray="2 2"
                         vertical={false}
-                    // width={2000}
                     />
                     <XAxis
                         dataKey="name"
@@ -113,10 +72,10 @@ export default function Activity({user}) {
                         orientation={'right'}
                     />
                     <Tooltip
-                        content={<CustomTooltip />}
+                        content={<RenderTooltip />}
                     />
                     <Legend
-                        content={renderLegend}
+                        content={<RenderLegend/>}
                         verticalAlign="top"
                         align="right"
                         height={80}
@@ -140,3 +99,11 @@ export default function Activity({user}) {
         </div>
     );
 }
+
+Activity.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        day: PropTypes.string.isRequired,
+        kilogram: PropTypes.number.isRequired,
+        calories: PropTypes.number.isRequired,
+    }))
+};

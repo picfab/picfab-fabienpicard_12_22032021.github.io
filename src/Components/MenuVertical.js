@@ -1,5 +1,15 @@
-import React from 'react'
 import Picto from './Picto'
+
+/**
+ * Create and display left vertical menu
+ * @module MenuVertical
+ * @category Application block
+ * @component
+ * @example
+ * return (
+ *   <MenuVertical/>
+ * )
+ */
 export default function MenuVertical() {
     return <div className="menuVert">
         <ul className="menuVert__list">

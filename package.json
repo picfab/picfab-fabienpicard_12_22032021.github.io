@@ -2,12 +2,18 @@
   "name": "sportsee",
   "version": "0.1.0",
   "private": true,
+    "repository":{
+    "type":"git",
+    "url":"https://github.com/picfab/picfab-fabienpicard_12_22032021.github.io"
+  },
+  "author":"Fabien Picard",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "postcss-modules": "^4.0.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-resize-detector": "^6.6.4",
     "react-scripts": "4.0.3",
     "recharts": "^2.0.8",
@@ -18,7 +24,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "doc": "./node_modules/.bin/jsdoc src"
+    "doc": "jsdoc -c jsdoc.json",
+    "doccss": "node-sass --include-path scss ./src/sass/main.scss ./docs/styles.css"
+
   },
   "eslintConfig": {
     "extends": [
@@ -41,9 +49,11 @@
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.13.10",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "8.1.0",
+    "better-docs": "^1.2.2",
     "jsdoc": "^3.6.6",
+    "node-sass": "^5.0.0",
     "sass": "^1.32.8",
-    "webpack": "^4.44.2"
+    "webpack": "4.44.2"
   }
 }

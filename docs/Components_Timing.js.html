@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>JSDoc: Components/Timing.js</title>
+
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./build/entry.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Muli:100,400,700|Oswald:300|Inconsolata,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+</head>
+
+<body>
+    <div id="stickyNavbarOverlay"></div>
+    <div class="top-navbar">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    
+                     
+                        <h1 class="navbar-item">SportSee Documentation</h1>
+                    
+                    <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-3" id="sidebarNav">
+                <div class="sidebar">
+                    <nav>
+                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-instal-server-api-tutorial.html">instal-server-api-tutorial</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateElement">CreateElement</a></li><li><a href="global.html#requestOptions">requestOptions</a></li><li><a href="global.html#style">style</a></li><li><a href="global.html#url">url</a></li></ul></div><div class="category"><h2>Application block</h2><h3>Components</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-Header.html">Header</a></li><li><a href="module-Info.html">Info</a></li><li><a href="module-Menu.html">Menu</a></li><li><a href="module-MenuVertical.html">MenuVertical</a></li><li><a href="module-Picto.html">Picto</a></li><li><a href="module-Spinner.html">Spinner</a></li></ul></div><div class="category"><h2>Recharts</h2><h3>Components</h3><ul><li><a href="module-Activity.html">Activity</a></li><li><a href="module-Activity_RenderBar.html">Activity/RenderBar</a></li><li><a href="module-Activity_RenderLegend.html">Activity/RenderLegend</a></li><li><a href="module-Activity_RenderTooltip.html">Activity/RenderTooltip</a></li><li><a href="module-Intensity.html">Intensity</a></li><li><a href="module-Score.html">Score</a></li><li><a href="module-Score_RenderLegend.html">Score/RenderLegend</a></li><li><a href="module-Timing.html">Timing</a></li></ul></div>
+                    </nav>
+                </div>
+            </div>
+            <div class="column is-9-desktop">
+                <div class="content" id="main-content-wrapper">
+                    <header class="page-title">
+                        <p>Source</p>
+                        <h1>Components/Timing.js</h1>
+                    </header>
+                    
+                    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from "react";
+import Spinner from './Spinner'
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    Tooltip,
+    ReferenceArea,
+    Legend
+} from "recharts";
+const daysLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+
+/**
+ * Use Timing component for create the graph activity
+ * @module Timing
+ * @component
+ * @category Recharts
+ * @param {array} data
+ * @param {number} data.day
+ * @param {number} data.sessionLength
+ * @example
+ * const data = [{"day":1,"sessionLength":30},{"day":2,"sessionLength":40},{"day":3,"sessionLength":50},{"day":4,"sessionLength":30},{"day":5,"sessionLength":30},{"day":6,"sessionLength":50},{"day":7,"sessionLength":50}];
+ * return ( &lt;Timing data={data}/> )
+ */
+
+export default function Timing({data}) {
+    const [hover, setHover] = useState(null)
+    const [width, setWidth] = useState(null)
+    const graphRef = useRef(null);
+
+    /**
+     * Set the with of this component
+     */
+    useEffect(() => {
+        const { offsetWidth } = graphRef.current
+        if (width !== offsetWidth) {
+            setWidth(offsetWidth)
+        }
+    }, [width])
+
+    /**
+     * Custom tooltip
+     * @param {object} props send by Tooltip
+     * @returns RenderTooltip
+     */
+    const RenderTooltip = (props) => {
+        return &lt;div>
+            {props.payload[0] &amp;&amp; `${props.payload[0].value} ${props.payload[0].unit}`}
+        &lt;/div>
+    }
+
+    /**
+     * Set x1 of ReferenceArea
+     * @param {object} e send by LineChart
+     */
+    const onMouseMoveLineChart = (e) => {
+        setHover(e.activeLabel)
+    }
+
+    /**
+     * reset x1 of ReferenceArea
+     * @param {object} e send by LineChart
+     */
+    const onMouseLeaveLineChart = (e) => {
+        setHover(null)
+    }
+
+    /**
+     * Set the day tick
+     * @param {number} day number a the weekday
+     * @returns string or number
+     */
+    const newtick =(day)=>{
+        return daysLetter[day - 1] ? daysLetter[day - 1]:''
+    }
+
+    /**
+     * @returns custom legend
+     */
+    const renderLegend = ()=>{
+        return 'Durée moyenne des sessions'
+    }
+
+    /**
+     * custom ReferenceArea when overlay
+     * @param {object} props from ReferenceArea
+     * @returns {object} ReferenceBands
+     */
+    function ReferenceBands(props) {
+        const { x } = props;
+        return (
+            &lt;path fillOpacity={.1} d={`M ${x},0 h ${width} v ${width} h -${width} Z`}>&lt;/path>
+        );
+    }
+
+    return (
+        &lt;div className="timing"
+            ref={graphRef}
+        >
+            {!data ? &lt;Spinner /> :
+            &lt;LineChart
+                width={width}
+                height={width}
+                data={data}
+                onMouseMove={onMouseMoveLineChart}
+                onMouseLeave={onMouseLeaveLineChart}
+            >
+                &lt;XAxis
+                    dataKey="day"
+                    height={1}
+                    y={200}
+                    type="number"
+                    tickFormatter={newtick}
+                    axisLine={false}
+                    tickLine={false}
+                    domain={['dataMin - 1', 'dataMax + 1']}
+                    tickCount={9}
+                />
+                &lt;YAxis
+                    axisLine={false}
+                    tickLine={false}
+                    hide={true}
+                    domain={[-20, 100]}
+                />
+                &lt;Tooltip
+                    viewBox={{x: 0, y: 0, width: 50, height: 100 }}
+                    cursor={false}
+                    wrapperStyle={{
+                        background:'#fff',
+                        padding:'7px',
+                        width: '100px',
+                    }}
+                        content={&lt;RenderTooltip/>}
+                />
+
+                {hover &amp;&amp; &lt;ReferenceArea
+                    x1={hover}
+                    x2={8}
+                    y1={-20}
+                    y2={100}
+                    fill="#000"
+                    fillOpacity="0.1"
+                    shape={&lt;ReferenceBands />}
+                    />
+                }
+
+                &lt;Legend
+                    content={renderLegend}
+                    verticalAlign="middle"
+                    align="left"
+                    wrapperStyle={{
+                        top:'10%',
+                        width:'50%',
+                        textAlign:'left',
+                        left:'10%',
+                    }}
+                />
+                &lt;Line
+                    dot={false}
+                    outerRadius={150}
+                    type="natural"
+                    dataKey="sessionLength"
+                    strokeWidth={2}
+                    stroke="#fff"
+                    activeDot={{ r: 8 }}
+                    connectNulls={true}
+                    unit="min"
+                />
+            &lt;/LineChart>
+            }
+        &lt;/div>
+    );
+}
+
+Timing.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        day: PropTypes.number.isRequired,
+        sessionLength: PropTypes.number.isRequired,
+    }))
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Wed Mar 24 2021 19:45:18 GMT+0100 (heure normale d’Europe centrale)</p>
+        <p class="sidebar-created-by">
+            <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+            <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+        </p>
+    </div>
+</footer>
+
+<script src="scripts/app.min.js"></script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,44 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
+import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from "react";
 import { RadialBarChart, RadialBar, Legend } from "recharts";
+import { RenderLegendScore, style} from "./GraphComponent/score"
 
-
-const style = {
-    box:{
-        top: 0,
-        left: 0,
-        right:0,
-        bottom:0,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        lineHeight: "24px",
-        width:'100%',
-        height:'100%',
-        color: 'grey',
-    },
-
-    title:{
-        position:'absolute',
-        top:0,
-        left:0,
-        color: '#000',
-    },
-
-};
-
-const renderLegend = (props) => {
-    const { payload } = props;
-    return (
-        <div className="score" style={style.legendScore}>
-            <div className="score__title" style={style.title}>Score</div>
-            <div className="score__info"><span className="score__value">{payload[0].payload.value * 100 }%</span><br/>
-            de votre objectif</div>
-        </div>
-    );
-}
-export default function Score({user}) {
+/**
+ * Use Activity component for create the graph activity
+ * @module Score
+ * @component
+ * @category Recharts
+ * @param {object} param
+ * @param {number} props.score is a number > 1
+ * @example
+ * const score = .3;
+ * return ( <Score score={score}/> )
+ */
+export default function Score({score}) {
     const [width, setWidth] = useState(null)
     const graphRef = useRef(null);
+
+    /**
+     * Set the with of this component
+     */
     useEffect(() => {
         const { offsetWidth } = graphRef.current
         if (width !== offsetWidth) {
@@ -46,12 +28,14 @@ export default function Score({user}) {
         }
     }, [width])
 
-    const data = [
-        {
-            value: user.score,
+    /**
+     * the data of this component
+     */
+    const data = [{
+            value: score,
             fill: "#FF0000"
-        }
-    ];
+    }];
+
     return (
         <div className="score"
             ref={graphRef}
@@ -76,10 +60,17 @@ export default function Score({user}) {
                         height={140}
                         layout="vertical"
                         verticalAlign="middle"
-                        content={renderLegend}
+                        content={<RenderLegendScore/>}
                         wrapperStyle={style.box}
                     />
                 </RadialBarChart>
         </div>
     );
+}
+
+Score.prototype={
+    /**
+     * Score is a number > 1 (percentage : 1 === 100%)
+     */
+    score:PropTypes.number.isRequired
 }
