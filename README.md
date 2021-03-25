@@ -1,4 +1,4 @@
-[Documentation](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/)
+[Documentation](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs)
 
 ![capture](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/doc-asset/img/capture.png)
 
