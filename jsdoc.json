@@ -18,7 +18,7 @@
       "recurse": true,
       "verbose": true,
       "template": "./node_modules/better-docs",
-      "tutorials":"./tutorials"
+      "tutorials":"./doc-asset/tutorials"
   },
   "templates": {
       "better-docs": {

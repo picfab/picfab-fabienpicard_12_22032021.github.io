@@ -2,11 +2,11 @@
   "name": "sportsee",
   "version": "0.1.0",
   "private": true,
-    "repository":{
-    "type":"git",
-    "url":"https://github.com/picfab/picfab-fabienpicard_12_22032021.github.io"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/picfab/picfab-fabienpicard_12_22032021.github.io"
   },
-  "author":"Fabien Picard",
+  "author": "Fabien Picard",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -26,7 +26,6 @@
     "eject": "react-scripts eject",
     "doc": "jsdoc -c jsdoc.json",
     "doccss": "node-sass --include-path scss ./src/sass/main.scss ./docs/styles.css"
-
   },
   "eslintConfig": {
     "extends": [

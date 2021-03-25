@@ -45,7 +45,7 @@
             <div class="column is-3" id="sidebarNav">
                 <div class="sidebar">
                     <nav>
-                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-instal-server-api-tutorial.html">instal-server-api-tutorial</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateElement">CreateElement</a></li><li><a href="global.html#requestOptions">requestOptions</a></li><li><a href="global.html#style">style</a></li><li><a href="global.html#url">url</a></li></ul></div><div class="category"><h2>Application block</h2><h3>Components</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-Header.html">Header</a></li><li><a href="module-Info.html">Info</a></li><li><a href="module-Menu.html">Menu</a></li><li><a href="module-MenuVertical.html">MenuVertical</a></li><li><a href="module-Picto.html">Picto</a></li><li><a href="module-Spinner.html">Spinner</a></li></ul></div><div class="category"><h2>Recharts</h2><h3>Components</h3><ul><li><a href="module-Activity.html">Activity</a></li><li><a href="module-Activity_RenderBar.html">Activity/RenderBar</a></li><li><a href="module-Activity_RenderLegend.html">Activity/RenderLegend</a></li><li><a href="module-Activity_RenderTooltip.html">Activity/RenderTooltip</a></li><li><a href="module-Intensity.html">Intensity</a></li><li><a href="module-Score.html">Score</a></li><li><a href="module-Score_RenderLegend.html">Score/RenderLegend</a></li><li><a href="module-Timing.html">Timing</a></li></ul></div>
+                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-instal-server-api-tutorial.html">instal-server-api-tutorial</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateElement">CreateElement</a></li><li><a href="global.html#daysLetter">daysLetter</a></li><li><a href="global.html#FactoryUser">FactoryUser</a></li><li><a href="global.html#intensityChange">intensityChange</a></li><li><a href="global.html#loadActivity">loadActivity</a></li><li><a href="global.html#loadData">loadData</a></li><li><a href="global.html#loadIntensity">loadIntensity</a></li><li><a href="global.html#normalChange">normalChange</a></li><li><a href="global.html#requestOptions">requestOptions</a></li><li><a href="global.html#style">style</a></li><li><a href="global.html#timingChange">timingChange</a></li><li><a href="global.html#url">url</a></li></ul></div><div class="category"><h2>Application block</h2><h3>Components</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-Header.html">Header</a></li><li><a href="module-Info.html">Info</a></li><li><a href="module-Menu.html">Menu</a></li><li><a href="module-MenuVertical.html">MenuVertical</a></li><li><a href="module-Picto.html">Picto</a></li><li><a href="module-Spinner.html">Spinner</a></li></ul></div><div class="category"><h2>Recharts</h2><h3>Components</h3><ul><li><a href="module-Activity.html">Activity</a></li><li><a href="module-Activity_RenderBar.html">Activity/RenderBar</a></li><li><a href="module-Activity_RenderLegend.html">Activity/RenderLegend</a></li><li><a href="module-Activity_RenderTooltip.html">Activity/RenderTooltip</a></li><li><a href="module-Intensity.html">Intensity</a></li><li><a href="module-Score.html">Score</a></li><li><a href="module-Score_RenderLegend.html">Score/RenderLegend</a></li><li><a href="module-Timing.html">Timing</a></li></ul></div>
                     </nav>
                 </div>
             </div>
@@ -71,25 +71,28 @@
  * factUser.CreateElement(userID);
  * @see {@link CreateElement} for construct an user
  * @function FactoryUser
- * @method CreateElement
  * @returns {object} A factory for construct an user
  */
 export default function FactoryUser(){
     /**
      * Function for create a new instance
      * @method CreateElement
-     * @see {@link FactoryUser} for create instance of this factory
+     * @see {@link FactoryUser} For instantiate the Factory
      * @param {number} id id of the user
-     * @returns user
+     * @return {Promise} user
      */
 
     this.CreateElement = function (id) {
         const user = {id}
         /**
+         * Use this method for get user data
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @method loadData
          * @param {string} slug endpoint of the API
          * @param {func} modififyResponse function for return a good data schema
          * @param {string} attrName the name of where data will save in user object
-         * @Promise user
+         * @return {Promise} user
          */
         user.loadData = (slug, modififyResponse, attrName) => new Promise((resole, reject) => {
             fetch(`${url}/user/${user.id}/${slug}`, requestOptions)
@@ -107,9 +110,17 @@ export default function FactoryUser(){
                 });
         })
 
+
         /**
          * Promise who return the data for graph Timing
-         * @Promise user
+         * @method loadData
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @param {string} slug endpoint of the API
+         * @param {func} modififyResponse function for return a good data schema
+         * @param {string} attrName the name of where data will save in user object
+         * @return {Promise} user
          */
         user.loadTiming = () => new Promise((resole, reject) => {
             user.loadData('average-sessions', 'normalChange','timing')
@@ -118,7 +129,11 @@ export default function FactoryUser(){
 
         /**
          * Promise who return the data for graph Activity
-         * @Promise user
+         * @method loadActivity
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @return {Promise} user
          */
         user.loadActivity = () => new Promise((resole, reject) => {
             user.loadData('activity', 'normalChange')
@@ -127,7 +142,11 @@ export default function FactoryUser(){
 
         /**
          * Promise who return the data for graph Intensity
-         * @Promise user
+         * @method loadIntensity
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @return {Promise} user
          */
         user.loadIntensity = () => new Promise((resole, reject) => {
             user.loadData('performance',  'intensityChange','intensity')
@@ -135,16 +154,24 @@ export default function FactoryUser(){
         })
 
         /**
-         * return normal data
-         * @return data
+         * Transform the data in correct schema
+         * @method normalChange
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @return {object} data in correct schema
          */
         user.normalChange=(data)=>{
             return data.sessions
         }
 
         /**
-         * return intensity data
-         * @return data
+         * Transform the data in correct schema intensity
+         * @method intensityChange
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @return {object} data in correct schema
          */
         user.intensityChange = (data) => {
             const order = ['intensity', 'speed', 'strength', 'endurance', 'energy','cardio']
@@ -165,8 +192,12 @@ export default function FactoryUser(){
         }
 
         /**
-         * return timing data
-         * @return data
+         * Transform the data in correct schema timing
+         * @method timingChange
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @return {object} data in correct schema
          */
         user.timingChange=(data)=>{
             const newData = data.sessions.map(x=>{
@@ -237,7 +268,7 @@ export default function FactoryUser(){
 
 <footer class="footer">
     <div class="content has-text-centered">
-        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Wed Mar 24 2021 19:45:18 GMT+0100 (heure normale d’Europe centrale)</p>
+        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Mar 25 2021 14:00:37 GMT+0100 (heure normale d’Europe centrale)</p>
         <p class="sidebar-created-by">
             <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
             <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>

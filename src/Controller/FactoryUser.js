@@ -6,25 +6,28 @@ import { url, requestOptions} from './dataApp'
  * factUser.CreateElement(userID);
  * @see {@link CreateElement} for construct an user
  * @function FactoryUser
- * @method CreateElement
  * @returns {object} A factory for construct an user
  */
 export default function FactoryUser(){
     /**
      * Function for create a new instance
      * @method CreateElement
-     * @see {@link FactoryUser} for create instance of this factory
+     * @see {@link FactoryUser} For instantiate the Factory
      * @param {number} id id of the user
-     * @returns user
+     * @return {Promise} user
      */
 
     this.CreateElement = function (id) {
         const user = {id}
         /**
+         * Use this method for get user data
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @method loadData
          * @param {string} slug endpoint of the API
          * @param {func} modififyResponse function for return a good data schema
          * @param {string} attrName the name of where data will save in user object
-         * @Promise user
+         * @return {Promise} user
          */
         user.loadData = (slug, modififyResponse, attrName) => new Promise((resole, reject) => {
             fetch(`${url}/user/${user.id}/${slug}`, requestOptions)
@@ -42,9 +45,17 @@ export default function FactoryUser(){
                 });
         })
 
+
         /**
          * Promise who return the data for graph Timing
-         * @Promise user
+         * @method loadData
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @param {string} slug endpoint of the API
+         * @param {func} modififyResponse function for return a good data schema
+         * @param {string} attrName the name of where data will save in user object
+         * @return {Promise} user
          */
         user.loadTiming = () => new Promise((resole, reject) => {
             user.loadData('average-sessions', 'normalChange','timing')
@@ -53,7 +64,11 @@ export default function FactoryUser(){
 
         /**
          * Promise who return the data for graph Activity
-         * @Promise user
+         * @method loadActivity
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @return {Promise} user
          */
         user.loadActivity = () => new Promise((resole, reject) => {
             user.loadData('activity', 'normalChange')
@@ -62,7 +77,11 @@ export default function FactoryUser(){
 
         /**
          * Promise who return the data for graph Intensity
-         * @Promise user
+         * @method loadIntensity
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @return {Promise} user
          */
         user.loadIntensity = () => new Promise((resole, reject) => {
             user.loadData('performance',  'intensityChange','intensity')
@@ -70,16 +89,24 @@ export default function FactoryUser(){
         })
 
         /**
-         * return normal data
-         * @return data
+         * Transform the data in correct schema
+         * @method normalChange
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @return {object} data in correct schema
          */
         user.normalChange=(data)=>{
             return data.sessions
         }
 
         /**
-         * return intensity data
-         * @return data
+         * Transform the data in correct schema intensity
+         * @method intensityChange
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @return {object} data in correct schema
          */
         user.intensityChange = (data) => {
             const order = ['intensity', 'speed', 'strength', 'endurance', 'energy','cardio']
@@ -100,8 +127,12 @@ export default function FactoryUser(){
         }
 
         /**
-         * return timing data
-         * @return data
+         * Transform the data in correct schema timing
+         * @method timingChange
+         * @see {@link loadData} For load an user
+         * @see {@link CreateElement} For create an user
+         * @see {@link FactoryUser} For instantiate the Factory
+         * @return {object} data in correct schema
          */
         user.timingChange=(data)=>{
             const newData = data.sessions.map(x=>{

@@ -10,6 +10,11 @@ import {
     ReferenceArea,
     Legend
 } from "recharts";
+
+/**
+ * First letter of the weekday
+ * @type {array}
+ */
 const daysLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
 
 /**
@@ -42,8 +47,9 @@ export default function Timing({data}) {
 
     /**
      * Custom tooltip
+     * @function RenderTooltip
      * @param {object} props send by Tooltip
-     * @returns RenderTooltip
+     * @returns {object} RenderTooltip
      */
     const RenderTooltip = (props) => {
         return <div>
@@ -52,7 +58,8 @@ export default function Timing({data}) {
     }
 
     /**
-     * Set x1 of ReferenceArea
+     * Set x1 of ReferenceArea when the mouse enter in the component
+     * @function onMouseMoveLineChart
      * @param {object} e send by LineChart
      */
     const onMouseMoveLineChart = (e) => {
@@ -60,7 +67,8 @@ export default function Timing({data}) {
     }
 
     /**
-     * reset x1 of ReferenceArea
+     * Reset x1 of ReferenceArea when the mouse leave the component
+     * @function onMouseLeaveLineChart
      * @param {object} e send by LineChart
      */
     const onMouseLeaveLineChart = (e) => {
@@ -69,15 +77,17 @@ export default function Timing({data}) {
 
     /**
      * Set the day tick
+     * @function newtick
      * @param {number} day number a the weekday
-     * @returns string or number
+     * @returns {string} The letter of the week
      */
     const newtick =(day)=>{
         return daysLetter[day - 1] ? daysLetter[day - 1]:''
     }
 
     /**
-     * @returns custom legend
+     * @function renderLegend
+     * @returns {string} custom legend
      */
     const renderLegend = ()=>{
         return 'Durée moyenne des sessions'
@@ -85,10 +95,11 @@ export default function Timing({data}) {
 
     /**
      * custom ReferenceArea when overlay
+     * @function ReferenceBands
      * @param {object} props from ReferenceArea
      * @returns {object} ReferenceBands
      */
-    function ReferenceBands(props) {
+    const ReferenceBands=(props)=> {
         const { x } = props;
         return (
             <path fillOpacity={.1} d={`M ${x},0 h ${width} v ${width} h -${width} Z`}></path>
@@ -175,8 +186,17 @@ export default function Timing({data}) {
 }
 
 Timing.propTypes = {
+    /**
+     * A array with the sessions length
+     */
     data: PropTypes.arrayOf(PropTypes.shape({
+        /**
+         * Day's session
+         */
         day: PropTypes.number.isRequired,
+        /**
+         * session's duration
+         */
         sessionLength: PropTypes.number.isRequired,
     }))
 };
