@@ -190,7 +190,9 @@ export default function Timing({data}) {
 
 Timing.propTypes = {
     /**
-     * A array with the sessions length
+     * Not see this, watch Parameters and Properties <br>
+     * Comments PropTypes.shape is not working with jsDoc
+     * @ignore
      */
     data: PropTypes.arrayOf(PropTypes.shape({
         /**
