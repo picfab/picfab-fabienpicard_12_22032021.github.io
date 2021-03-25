@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
  * @component
  * @category Recharts
  * @subcategory Score
+ * @see {@link https://recharts.org/en-US/api/Legend#content}
+ * @param {object} props
+ * @prop {array} payload Array of payload graph
  * @example
  * const payload = [{payload:{value:.3}}];
  * return ( <RenderLegendScore payload={payload}/> )

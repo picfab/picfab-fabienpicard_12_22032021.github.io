@@ -2,6 +2,9 @@
 
 ![capture](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/doc-asset/img/capture.png)
 
+## First install the node server
+See the documentation here : [Server for the API](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs/tutorial-instal-server-api-tutorial.html)
+
 ## Important : After download this projet
 ### Project build width Create React App,
 ### In console launch `yarn install'

@@ -5,11 +5,14 @@ import { RenderLegendScore, style} from "./GraphComponent/score"
 
 /**
  * Use Activity component for create the graph activity
+ * See other component use in this one :<br>
+ * <a href="./module-Score_RenderLegend.html">RenderLegend</a><br>
+ * <a href="./global.html#style">style</a><br>
  * @module Score
  * @component
  * @category Recharts
- * @param {object} param
- * @param {number} props.score is a number > 1
+ * @param {object} props
+ * @prop {number} props.score is a number > 1
  * @example
  * const score = .3;
  * return ( <Score score={score}/> )
@@ -68,7 +71,7 @@ export default function Score({score}) {
     );
 }
 
-Score.prototype={
+Score.propTypes={
     /**
      * Score is a number > 1 (percentage : 1 === 100%)
      */

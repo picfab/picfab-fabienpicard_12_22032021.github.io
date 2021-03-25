@@ -21,7 +21,8 @@ export default function Header({name,message}){
 }
 
 Header.propTypes = {
-    /** Description of prop "foo". */
+    /** The user name */
     name: PropTypes.string,
+    /** A message for the user */
     message: PropTypes.string,
 };

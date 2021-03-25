@@ -87,6 +87,7 @@ export default function Timing({data}) {
 
     /**
      * @function renderLegend
+     * @see {@link https://recharts.org/en-US/api/Legend#content}
      * @returns {string} custom legend
      */
     const renderLegend = ()=>{
@@ -96,6 +97,8 @@ export default function Timing({data}) {
     /**
      * custom ReferenceArea when overlay
      * @function ReferenceBands
+     * @see {@link https://recharts.org/en-US/api/ReferenceArea#shape}
+     * @see {@link https://codesandbox.io/s/reference-area-shape-502rx}
      * @param {object} props from ReferenceArea
      * @returns {object} ReferenceBands
      */

@@ -13,8 +13,11 @@ import {
  * @module Intensity
  * @component
  * @category Recharts
- * @param {object} param
- * @param {object} props.user the current user object
+ * @param {object} props
+ * @prop {array} data A array with all user Performance
+ * @prop {number} data[].value value of this Performance
+ * @prop {string} data[].label english label
+ * @prop {string} data[].labelfr french label
  * @example
  * const data = [{"value":110,"kind":6,"label":"intensity","labelfr":"Intensité"},{"value":220,"kind":5,"label":"speed","labelfr":"Vitesse"},{"value":80,"kind":4,"label":"strength","labelfr":"Force"},{"value":80,"kind":3,"label":"endurance","labelfr":"Endurance"},{"value":240,"kind":2,"label":"energy","labelfr":"Force"},{"value":200,"kind":1,"label":"cardio","labelfr":"Cardio"}];
  * return ( <Intensity data={data}/> )
@@ -67,6 +70,11 @@ export default function Intensity({data}) {
 }
 
 Intensity.propTypes = {
+    /**
+     * Not see this, watch Parameters and Properties <br>
+     * Comments PropTypes.shape is not working with jsDoc
+     * @ignore
+     */
     data: PropTypes.arrayOf(PropTypes.shape({
         label: PropTypes.string.isRequired,
         labelfr: PropTypes.string.isRequired,

@@ -37,7 +37,6 @@ Info.propTypes = {
      * Value accepted :<br>
      * [logo, calories, proteines, glucides, lipides, lotus, swim, bike, muscu]<br>
      * Write in lowercase
-     * @var {string}
      */
     title: PropTypes.string.isRequired,
     /**

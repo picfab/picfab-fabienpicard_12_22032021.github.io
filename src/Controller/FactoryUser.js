@@ -1,16 +1,22 @@
 import { url, requestOptions} from './dataApp'
 /**
- * Factory for create a new User a save all user data
- * You can do this for create a factory :
- * const factUser = new FactoryUser();
+ * @module FactoryUser
+ * @category Factory
+ */
+/**
+ * Factory for create a new User
+ * You can do this for create a new instance :<br>
+ * const factUser = new FactoryUser();<br>
  * factUser.CreateElement(userID);
+ * @class FactoryUser
  * @see {@link CreateElement} for construct an user
- * @function FactoryUser
  * @returns {object} A factory for construct an user
  */
 export default function FactoryUser(){
     /**
-     * Function for create a new instance
+     * Function for create a new user
+     * @category factory
+     * @inner
      * @method CreateElement
      * @see {@link FactoryUser} For instantiate the Factory
      * @param {number} id id of the user
@@ -18,6 +24,9 @@ export default function FactoryUser(){
      */
 
     this.CreateElement = function (id) {
+        /**
+         * The user object of the module.
+         */
         const user = {id}
         /**
          * Use this method for get user data

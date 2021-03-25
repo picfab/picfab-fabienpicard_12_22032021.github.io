@@ -2,12 +2,19 @@ import PropTypes from 'prop-types';
 /**
  * @namespace
  * Create the custom Bar
+ * See parent component :<br>
+ * <a href="./module-Activity.html">Activity</a>
  * @module Activity/RenderBar
- * @alias RenderBar
- * @component
+ * @component RenderBar
  * @category Recharts
  * @subcategory Activity
+ * @see {@link https://recharts.org/en-US/examples/CustomShapeBarChart}
  * @param {object} props Send by Bar component
+ * @prop {string} fill
+ * @prop {x} number
+ * @prop {y} number
+ * @prop {width} number
+ * @prop {height} number
  * @example
  * const width = 7;
  * const x = 65;
