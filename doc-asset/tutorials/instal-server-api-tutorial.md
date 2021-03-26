@@ -1,5 +1,3 @@
-https://www.youtube.com/watch?v=YK-GurROGIg&ab_channel=TraversyMedia
-
 ### FIRST go to download the nodeServer
 [https://github.com/picfab/P9-front-end-dashboard](https://github.com/picfab/P9-front-end-dashboard)
 
