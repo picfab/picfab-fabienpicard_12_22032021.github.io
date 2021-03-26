@@ -26,14 +26,18 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "doc": "jsdoc -c jsdoc.json",
-        "doccss": "node-sass --include-path scss ./src/sass/main.scss ./docs/styles.css",
-        "precommit": "pretty-quick --staged"
+        "doccss": "node-sass --include-path scss ./src/sass/main.scss ./docs/styles.css"
     },
     "eslintConfig": {
         "extends": [
             "react-app",
             "react-app/jest"
         ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
     },
     "browserslist": {
         "production": [
