@@ -12,7 +12,7 @@ import {
  * Use Activity component for create the graph activity
  * @module Intensity
  * @component
- * @category Recharts
+ * @category 4 - Recharts
  * @param {object} props
  * @prop {array} data A array with all user Performance
  * @prop {number} data[].value value of this Performance

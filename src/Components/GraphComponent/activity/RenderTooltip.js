@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
  * Create a custom tooltip
  * See parent component :<br>
  * <a href="./module-Activity.html">Activity</a>
- * @module Activity/RenderTooltip
- * @component RenderTooltip
- * @category Recharts
+ * @component
+ * @category 4.1 - Activity child components
  * @see {@link https://recharts.org/en-US/examples/CustomContentOfTooltip}
  * @param {object} props
  * @prop {array} payload Array of payload graph
  * @prop {bool} active Array of payload graph
- * @subcategory Activity
  * @example
  * const active = true;
  * const payload = [{unit: "kg",value: 69,},{unit: "Kcal",value: 162}];

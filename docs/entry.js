@@ -22,15 +22,6 @@
       import Activity from '../src/Components/Activity.js';
 Components.Activity = Activity;
 
-import RenderBar from '../src/Components/GraphComponent/activity/RenderBar.js';
-Components.RenderBar = RenderBar;
-
-import RenderLegend from '../src/Components/GraphComponent/activity/RenderLegend.js';
-Components.RenderLegend = RenderLegend;
-
-import RenderTooltip from '../src/Components/GraphComponent/activity/RenderTooltip.js';
-Components.RenderTooltip = RenderTooltip;
-
 import App from '../src/App.js';
 Components.App = App;
 
@@ -55,11 +46,20 @@ Components.Picto = Picto;
 import Score from '../src/Components/Score.js';
 Components.Score = Score;
 
-import RenderLegendScore from '../src/Components/GraphComponent/score/RenderLegendScore.js';
-Components.RenderLegendScore = RenderLegendScore;
-
 import Spinner from '../src/Components/Spinner.js';
 Components.Spinner = Spinner;
 
 import Timing from '../src/Components/Timing.js';
 Components.Timing = Timing;
+
+import RenderBar from '../src/Components/GraphComponent/activity/RenderBar.js';
+Components.RenderBar = RenderBar;
+
+import RenderLegend from '../src/Components/GraphComponent/activity/RenderLegend.js';
+Components.RenderLegend = RenderLegend;
+
+import RenderLegendScore from '../src/Components/GraphComponent/score/RenderLegendScore.js';
+Components.RenderLegendScore = RenderLegendScore;
+
+import RenderTooltip from '../src/Components/GraphComponent/activity/RenderTooltip.js';
+Components.RenderTooltip = RenderTooltip;

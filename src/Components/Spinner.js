@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 /**
  * Create a spinner for wait
  * @module Spinner
- * @category Application block
  * @component
  * @example
  * const className = 'class1 class2'

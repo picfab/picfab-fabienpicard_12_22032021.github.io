@@ -14,6 +14,7 @@ import {
 /**
  * First letter of the weekday
  * @type {array}
+ * @ignore
  */
 const daysLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
 
@@ -21,7 +22,7 @@ const daysLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
  * Use Timing component for create the graph activity
  * @module Timing
  * @component
- * @category Recharts
+ * @category 4 - Recharts
  * @param {array} data
  * @param {number} data.day
  * @param {number} data.sessionLength

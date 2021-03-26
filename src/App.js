@@ -15,7 +15,6 @@ import Spinner from './Components/Spinner'
  * the application component
  * @module App
  * @component
- * @category Application block
  * @example
  * return ( <App/> )
  */

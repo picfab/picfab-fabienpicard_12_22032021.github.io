@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 /**
  * Create and display left vertical menu
  * @module Picto
- * @category Application block
  * @component
  * @example
  * const type = 'calories';

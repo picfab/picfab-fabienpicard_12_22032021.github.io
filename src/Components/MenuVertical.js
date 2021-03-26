@@ -3,7 +3,7 @@ import Picto from './Picto'
 /**
  * Create and display left vertical menu
  * @module MenuVertical
- * @category Application block
+ * @category 3 - Navigation
  * @component
  * @example
  * return (

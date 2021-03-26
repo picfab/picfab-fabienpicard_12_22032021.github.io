@@ -1,7 +1,7 @@
 import { url, requestOptions} from './dataApp'
 /**
  * @module FactoryUser
- * @category Factory
+ * @category 2 - Factory
  */
 /**
  * Factory for create a new User
@@ -9,6 +9,7 @@ import { url, requestOptions} from './dataApp'
  * const factUser = new FactoryUser();<br>
  * factUser.CreateElement(userID);
  * @class FactoryUser
+ * @category 2 - Factory
  * @see {@link CreateElement} for construct an user
  * @returns {object} A factory for construct an user
  */

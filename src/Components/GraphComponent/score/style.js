@@ -4,6 +4,7 @@
  * <li>See <a href="./Components_Activity.js.html">Activity.js</a></li>
  * <li>See legend component <a href="./module-Activity_RenderLegend.html">Activity.js</a></li>
  * </ul>
+ * @category 4.2 - Score child components
  */
 const style = {
     box: {

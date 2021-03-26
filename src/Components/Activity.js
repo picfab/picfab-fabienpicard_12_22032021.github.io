@@ -20,7 +20,7 @@ import { RenderTooltip, RenderBar, RenderLegend} from './GraphComponent/activity
  * <a href="./module-Activity_RenderTooltip.html">RenderTooltip</a>
  * @module Activity
  * @component
- * @category Recharts
+ * @category 4 - Recharts
  * @param {array} data
  * @prop {string} data[].date
  * @prop {number} data[].kilogram

@@ -4,7 +4,6 @@ import Picto from './Picto'
 /**
  * Display a informational block
  * @module Info
- * @category Application block
  * @component
  * @example
  * const value = '580 g';

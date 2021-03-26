@@ -3,7 +3,7 @@ import Picto from './Picto'
 /**
  * Create and display top Menu
  * @module Menu
- * @category Application block
+ * @category 3 - Navigation
  * @component
  * @example
  * return (

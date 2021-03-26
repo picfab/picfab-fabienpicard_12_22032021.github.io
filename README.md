@@ -1,12 +1,16 @@
-[Documentation](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs)
-
 ![capture](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/doc-asset/img/capture.png)
 
 ## First install the node server
 See the documentation here : [Server for the API](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs/tutorial-instal-server-api-tutorial.html)
 
+If your server is not on `http://localhost:3002/`
+You have to change the url for the API in file `src/Controller/dataApp.js`
+
+## Documentation
+You can find the documentation for all components [here](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs)
+
 ## Important : After download this projet
-### Project build width Create React App,
+### Project build with Create React App,
 ### In console launch `yarn install'
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

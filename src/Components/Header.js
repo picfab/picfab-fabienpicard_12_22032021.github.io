@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 /**
  * Afficher le message de bienvenu
  * @module Header
- * @category Application block
  * @component
  * @example
  * const name = 'Fabien';

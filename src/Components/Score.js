@@ -10,7 +10,7 @@ import { RenderLegendScore, style} from "./GraphComponent/score"
  * <a href="./global.html#style">style</a><br>
  * @module Score
  * @component
- * @category Recharts
+ * @category 4 - Recharts
  * @param {object} props
  * @prop {number} props.score is a number > 1
  * @example

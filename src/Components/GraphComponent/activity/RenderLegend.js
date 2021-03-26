@@ -2,11 +2,9 @@
  * Function use by Legend component
  * See parent component :<br>
  * <a href="./module-Activity.html">Activity</a>
- * @module Activity/RenderLegend
- * @component RenderLegend
- * @category Recharts
+ * @component
+ * @category 4.1 - Activity child components
  * @see {@link https://recharts.org/en-US/api/Legend#content}
- * @subcategory Activity
  * @example
  * return ( <RenderLegend /> )
  */

@@ -2,10 +2,8 @@ import PropTypes from 'prop-types';
 
 /**
  * Function use by Legend component
- * @module Score/RenderLegend
  * @component
- * @category Recharts
- * @subcategory Score
+ * @category 4.2 - Score child components
  * @see {@link https://recharts.org/en-US/api/Legend#content}
  * @param {object} props
  * @prop {array} payload Array of payload graph
