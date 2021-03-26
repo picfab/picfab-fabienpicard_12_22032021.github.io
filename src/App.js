@@ -10,7 +10,7 @@ import MenuVertical from './Components/MenuVertical'
 import Header from './Components/Header'
 import FactoryUser from './Controller/FactoryUser'
 import Spinner from './Components/Spinner'
-
+import { userId } from './Controller/dataApp'
 /**
  * the application component
  * @module App
@@ -26,7 +26,7 @@ export default function App() {
    */
   useEffect(()=>{
     const factUser = new FactoryUser()
-    factUser.CreateElement(18).then(newUser => {
+    factUser.CreateElement(userId).then(newUser => {
       setUser(newUser)
       newUser.loadActivity()
         .then((user) => setUser({...user}))
