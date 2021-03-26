@@ -11,7 +11,7 @@ import Picto from './Picto'
  * )
  */
 
-export default function Menu(){
+export default function Menu() {
     return <div className="menu">
         <ul className="menu__list">
             <li className="menu__elt"><Picto type="logo" /></li>

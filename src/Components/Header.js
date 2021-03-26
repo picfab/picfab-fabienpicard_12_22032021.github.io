@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 /**
  * Afficher le message de bienvenu
@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
  * )
  */
 
-export default function Header({name,message}){
+export default function Header({ name, message }) {
     return <header className="header">
         <h1 className="header__title">Bonjour <span className="header__name">{name}</span></h1>
         <div className="header__message">{message}</div>
@@ -24,4 +24,4 @@ Header.propTypes = {
     name: PropTypes.string,
     /** A message for the user */
     message: PropTypes.string,
-};
+}

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 /**
  * Create a spinner for wait
@@ -22,9 +22,9 @@ export default function Spinner({ className }) {
         </div>
     </div>
 }
-Spinner.prototype={
+Spinner.prototype = {
     /**
      * write the class like 'class1 class2 class3'
      */
-    className:PropTypes.string
+    className: PropTypes.string
 }

@@ -1,5 +1,4 @@
-//https://github.com/shri/JSDoc-Style-Guide
-import React, { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react'
 import Activity from './Components/Activity'
 import Score from './Components/Score'
 import Intensity from './Components/Intensity'
@@ -19,53 +18,53 @@ import { userId } from './Controller/dataApp'
  * return ( <App/> )
  */
 export default function App() {
-  const [user,setUser] = useState(null)
+  const [user, setUser] = useState(null)
 
   /**
    * set a new user
    */
-  useEffect(()=>{
+  useEffect(() => {
     const factUser = new FactoryUser()
     factUser.CreateElement(userId).then(newUser => {
       setUser(newUser)
       newUser.loadActivity()
-        .then((user) => setUser({...user}))
+        .then((user) => setUser({ ...user }))
       newUser.loadIntensity()
         .then((user) => setUser({ ...user }))
       newUser.loadTiming()
         .then((user) => setUser({ ...user }))
     })
-  },[])
+  }, [])
 
   return (
     <div className="App">
       <header className="App-header">
-        <Menu/>
+        <Menu />
       </header>
       <div className="page-area">
-        <MenuVertical/>
+        <MenuVertical />
         <main className="content">
-          {!user ? <Spinner className="openApp bg"/>:
+          {!user ? <Spinner className="openApp bg" /> :
             <>
-              <Header name={user.userInfos.firstName} message="Félicitation ! Vous avez explosé vos objectifs hier 👏"/>
+              <Header name={user.userInfos.firstName} message="Félicitation ! Vous avez explosé vos objectifs hier 👏" />
               <div className="graphs">
-                <Activity data={user.activity}/>
+                <Activity data={user.activity} />
                 <Timing data={user.timing} />
-                <Intensity data={user.intensity}/>
-                <Score score={user.score}/>
+                <Intensity data={user.intensity} />
+                <Score score={user.score} />
               </div>
               <aside className="infos">
                 <Info value={`${user.keyData.calorieCount} kCal`} title="calories" />
-                <Info value={`${user.keyData.proteinCount} g`} title="proteines" color="#4AB8FF"/>
-                <Info value={`${user.keyData.carbohydrateCount} g`} title="glucides" color="#FDCC0C"/>
+                <Info value={`${user.keyData.proteinCount} g`} title="proteines" color="#4AB8FF" />
+                <Info value={`${user.keyData.carbohydrateCount} g`} title="glucides" color="#FDCC0C" />
                 <Info value={`${user.keyData.lipidCount} g`} title="lipides" color="#FD5181" />
               </aside>
             </>
           }
-          </main>
+        </main>
       </div>
     </div>
 
-  );
+  )
 }
 

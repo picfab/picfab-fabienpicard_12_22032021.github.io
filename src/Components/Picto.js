@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 /**
  * Create and display left vertical menu
@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  *   <Picto type={type} color={color}/>
  * )
  */
-export default function Picto({type,color}) {
+export default function Picto({ type, color }) {
     switch (type) {
         case 'logo':
             return <svg width="178" height="61" viewBox="0 0 178 61" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,7 +104,7 @@ Picto.propTypes = {
      * color by default is #FF0101
      */
     color: PropTypes.string
-};
+}
 Picto.defaultProps = {
     color: '#FF0101'
-};
+}

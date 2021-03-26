@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import { useEffect, useRef, useState } from "react";
+import PropTypes from 'prop-types'
+import { useEffect, useRef, useState } from "react"
 import Spinner from './Spinner'
 import {
     BarChart,
@@ -9,8 +9,8 @@ import {
     CartesianGrid,
     Tooltip,
     Legend
-} from "recharts";
-import { RenderTooltip, RenderBar, RenderLegend} from './GraphComponent/activity'
+} from "recharts"
+import { RenderTooltip, RenderBar, RenderLegend } from './GraphComponent/activity'
 
 /**
  * Use Activity component for create the graph activity
@@ -29,15 +29,15 @@ import { RenderTooltip, RenderBar, RenderLegend} from './GraphComponent/activity
  * const data = [{"day":"2020-07-01","kilogram":70,"calories":240},{"day":"2020-07-02","kilogram":69,"calories":220},{"day":"2020-07-03","kilogram":70,"calories":280},{"day":"2020-07-04","kilogram":70,"calories":500},{"day":"2020-07-05","kilogram":69,"calories":160},{"day":"2020-07-06","kilogram":69,"calories":162},{"day":"2020-07-07","kilogram":69,"calories":390}];
  * return ( <Activity data={data}/> )
  */
-export default function Activity({data}) {
+export default function Activity({ data }) {
     const [width, setWidth] = useState(null)
-    const graphRef = useRef(null);
+    const graphRef = useRef(null)
     /**
      * Set the width of this component
      */
     useEffect(() => {
         const { offsetWidth } = graphRef.current
-        if (width !== offsetWidth){
+        if (width !== offsetWidth) {
             setWidth(offsetWidth)
         }
     }, [width])
@@ -47,10 +47,10 @@ export default function Activity({data}) {
             ref={graphRef}
             className="activity"
         >
-            {!data?<Spinner/>:
+            {!data ? <Spinner /> :
                 <BarChart
                     width={width}
-                    height={width*38/100}
+                    height={width * 38 / 100}
                     data={data}
                     margin={{
                         top: 5,
@@ -77,7 +77,7 @@ export default function Activity({data}) {
                         content={<RenderTooltip />}
                     />
                     <Legend
-                        content={<RenderLegend/>}
+                        content={<RenderLegend />}
                         verticalAlign="top"
                         align="right"
                         height={80}
@@ -99,7 +99,7 @@ export default function Activity({data}) {
                 </BarChart>
             }
         </div>
-    );
+    )
 }
 
 
@@ -114,4 +114,4 @@ Activity.propTypes = {
         kilogram: PropTypes.number.isRequired,
         calories: PropTypes.number.isRequired,
     }))
-};
+}

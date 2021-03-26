@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import Picto from './Picto'
 
 /**
@@ -13,10 +13,10 @@ import Picto from './Picto'
  *   <Info value={value} title={title} color={color} />
  * )
  */
-export default function Info ({value,title,color}){
+export default function Info({ value, title, color }) {
 
     return <div className="info">
-        <Picto type={title} color={color}/>
+        <Picto type={title} color={color} />
         <div className="info__content">
             <div className="info__value">{value}</div>
             <div className="info__title">{title.toUpperCase()}</div>
@@ -42,4 +42,4 @@ Info.propTypes = {
      * the color of the icon
      */
     color: PropTypes.string,
-};
+}
