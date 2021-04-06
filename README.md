@@ -29,14 +29,10 @@ Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 You have to change the url for the API in file `src/Controller/dataApp.js`**
 before launch `yarn start`
 
-<<<<<<< HEAD
 If your server is not on `http://localhost:3002/`
 You have to change the url for the API in file `src/Controller/dataApp.js`
 
 The page will reload if you make edits.\
-=======
-The page will reload if you make edits.
->>>>>>> fix: remove useEffect and useRef not important
 You will also see any lint errors in the console.
 
 ### `yarn test`
