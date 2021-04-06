@@ -1,14 +1,22 @@
 ![capture](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/doc-asset/img/capture.png)
 
-## First install the node server
-
-See the documentation here : [Server for the API](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs/tutorial-Instal%20server%20API.html)
-
 ## Documentation
 
-You can find the documentation for all components [here](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs)
+Find the documentation for all components [here](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs)
+
+## First install the node server
+
+``See how install and start node server for the API here :``
+[Server for the API](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs/tutorial-instal-server-api-tutorial.html)
+
+When you are start the node server you can continu to install the App.
 
 ## Important : After download this projet
+
+### Check the node Server URL
+
+**If your server for the API is not on `http://localhost:3000/`
+You have to change the url for the API in file `src/Controller/dataApp.js` before launch `yarn start`**
 
 ### Project build with Create React App,
 
@@ -25,11 +33,6 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
-**If your server is not on `http://localhost:3000/`
-You have to change the url for the API in file `src/Controller/dataApp.js` before launch `yarn start`**
-
-``See how start node server for the API here :``
-[Server for the API](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs/tutorial-instal-server-api-tutorial.html)
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
