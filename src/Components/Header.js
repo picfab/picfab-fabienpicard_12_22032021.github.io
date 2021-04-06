@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
  * @component
  * @example
  * const name = 'Fabien';
- * const message = 'Good job';
+ * const message = 'Hello world';
  * return (
  *   <Header message={message} name={name} />
  * )

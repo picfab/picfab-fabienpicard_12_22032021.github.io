@@ -16,10 +16,10 @@ import { url, requestOptions } from './dataApp'
 export default function FactoryUser() {
     /**
      * Function for create a new user
-     * @category factory
+     * @category 2 - Factory
      * @inner
      * @method CreateElement
-     * @see {@link FactoryUser} For instantiate the Factory
+     * @see [FactoryUser](module-FactoryUser-FactoryUser.html) For instantiate the Factory
      * @param {number} id id of the user
      * @return {Promise} user
      */
@@ -31,8 +31,8 @@ export default function FactoryUser() {
         const user = { id }
         /**
          * Use this method for get user data
-         * @see {@link CreateElement} For create an user
-         * @see {@link FactoryUser} For instantiate the Factory
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](#~FactoryUser) For instantiate the Factory
          * @method loadData
          * @param {string} slug endpoint of the API
          * @param {func} modififyResponse function for return a good data schema
@@ -58,9 +58,9 @@ export default function FactoryUser() {
         /**
          * Promise who return the data for graph Timing
          * @method loadData
-         * @see {@link loadData} For load an user
-         * @see {@link CreateElement} For create an user
-         * @see {@link FactoryUser} For instantiate the Factory
+         * @see [loadData](#~loadData) For load an user
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](#~FactoryUser) For instantiate the Factory
          * @param {string} slug endpoint of the API
          * @param {func} modififyResponse function for return a good data schema
          * @param {string} attrName the name of where data will save in user object
@@ -74,9 +74,9 @@ export default function FactoryUser() {
         /**
          * Promise who return the data for graph Activity
          * @method loadActivity
-         * @see {@link loadData} For load an user
-         * @see {@link CreateElement} For create an user
-         * @see {@link FactoryUser} For instantiate the Factory
+         * @see [loadData](#~loadData) For load an user
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](#~FactoryUser) For instantiate the Factory
          * @return {Promise} user
          */
         user.loadActivity = () => new Promise((resole, reject) => {
@@ -87,9 +87,9 @@ export default function FactoryUser() {
         /**
          * Promise who return the data for graph Intensity
          * @method loadIntensity
-         * @see {@link loadData} For load an user
-         * @see {@link CreateElement} For create an user
-         * @see {@link FactoryUser} For instantiate the Factory
+         * @see [loadData](#~loadData) For load an user
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](#~FactoryUser)  For instantiate the Factory
          * @return {Promise} user
          */
         user.loadIntensity = () => new Promise((resole, reject) => {
@@ -100,9 +100,9 @@ export default function FactoryUser() {
         /**
          * Transform the data in correct schema
          * @method normalChange
-         * @see {@link loadData} For load an user
-         * @see {@link CreateElement} For create an user
-         * @see {@link FactoryUser} For instantiate the Factory
+         * @see [loadData](#~loadData) For load an user
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](#~FactoryUser)  For instantiate the Factory
          * @return {object} data in correct schema
          */
         user.normalChange = (data) => {
@@ -112,9 +112,9 @@ export default function FactoryUser() {
         /**
          * Transform the data in correct schema intensity
          * @method intensityChange
-         * @see {@link loadData} For load an user
-         * @see {@link CreateElement} For create an user
-         * @see {@link FactoryUser} For instantiate the Factory
+         * @see [loadData](#~loadData) For load an user
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](#~FactoryUser)  For instantiate the Factory
          * @return {object} data in correct schema
          */
         user.intensityChange = (data) => {
@@ -138,9 +138,9 @@ export default function FactoryUser() {
         /**
          * Transform the data in correct schema timing
          * @method timingChange
-         * @see {@link loadData} For load an user
-         * @see {@link CreateElement} For create an user
-         * @see {@link FactoryUser} For instantiate the Factory
+         * @see [loadData](#~loadData) For load an user
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](#~FactoryUser)  For instantiate the Factory
          * @return {object} data in correct schema
          */
         user.timingChange = (data) => {
