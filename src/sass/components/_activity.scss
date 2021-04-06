@@ -1,0 +1,37 @@
+.activity {
+	margin: 5px;
+	background: #fbfbfb;
+	border-radius: 5px;
+	width: 100%;
+	aspect-ratio: 836 / 320;
+  .tooltip{
+    width: 50px;
+  }
+	.tooltip__text {
+    font-size: 12px;
+	}
+	.recharts-wrapper {
+		width: 100% !important;
+		.recharts-surface {
+			width: 100%;
+		}
+	}
+}
+
+.legendActivity {
+	display: flex;
+	justify-content: space-between;
+	font-family: Roboto;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0px;
+	text-align: left;
+	&__poids {
+		margin-right: 39px;
+	}
+	&__icon {
+		margin-right: 12px;
+	}
+}

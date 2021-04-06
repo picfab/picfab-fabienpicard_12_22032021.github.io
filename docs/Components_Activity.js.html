@@ -64,7 +64,6 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
-import { useEffect, useRef, useState } from "react"
 import Spinner from './Spinner'
 import {
     BarChart,
@@ -73,7 +72,8 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend
+    Legend,
+    ResponsiveContainer
 } from "recharts"
 import { RenderTooltip, RenderBar, RenderLegend } from './GraphComponent/activity'
 
@@ -95,73 +95,61 @@ import { RenderTooltip, RenderBar, RenderLegend } from './GraphComponent/activit
  * return ( &lt;Activity data={data}/> )
  */
 export default function Activity({ data }) {
-    const [width, setWidth] = useState(null)
-    const graphRef = useRef(null)
-    /**
-     * Set the width of this component
-     */
-    useEffect(() => {
-        const { offsetWidth } = graphRef.current
-        if (width !== offsetWidth) {
-            setWidth(offsetWidth)
-        }
-    }, [width])
 
     return (
         &lt;div
-            ref={graphRef}
             className="activity"
         >
             {!data ? &lt;Spinner /> :
-                &lt;BarChart
-                    width={width}
-                    height={width * 38 / 100}
-                    data={data}
-                    margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5
-                    }}
-                >
-                    &lt;CartesianGrid
-                        strokeDasharray="2 2"
-                        vertical={false}
-                    />
-                    &lt;XAxis
-                        dataKey="name"
-                        axisLine={true}
-                        tickLine={false}
-                    />
-                    &lt;YAxis
-                        axisLine={false}
-                        tickLine={false}
-                        orientation={'right'}
-                    />
-                    &lt;Tooltip
-                        content={&lt;RenderTooltip />}
-                    />
-                    &lt;Legend
-                        content={&lt;RenderLegend />}
-                        verticalAlign="top"
-                        align="right"
-                        height={80}
-                    />
-                    &lt;Bar
-                        dataKey="kilogram"
-                        fill="#282D30"
-                        shape={&lt;RenderBar />}
-                        barSize={7}
-                        unit={'kg'}
-                    />
-                    &lt;Bar
-                        dataKey="calories"
-                        fill="#E60000"
-                        shape={&lt;RenderBar />}
-                        barSize={7}
-                        unit={'Kcal'}
-                    />
-                &lt;/BarChart>
+                &lt;ResponsiveContainer aspect={998/382}>
+                    &lt;BarChart
+                        data={data}
+                        margin={{
+                            top: 5,
+                            right: 30,
+                            left: 20,
+                            bottom: 5
+                        }}
+                    >
+                        &lt;CartesianGrid
+                            strokeDasharray="2 2"
+                            vertical={false}
+                        />
+                        &lt;XAxis
+                            dataKey="name"
+                            axisLine={true}
+                            tickLine={false}
+                        />
+                        &lt;YAxis
+                            axisLine={false}
+                            tickLine={false}
+                            orientation={'right'}
+                        />
+                        &lt;Tooltip
+                            content={&lt;RenderTooltip />}
+                        />
+                        &lt;Legend
+                            content={&lt;RenderLegend />}
+                            verticalAlign="top"
+                            align="right"
+                            height={80}
+                        />
+                        &lt;Bar
+                            dataKey="kilogram"
+                            fill="#282D30"
+                            shape={&lt;RenderBar />}
+                            barSize={7}
+                            unit={'kg'}
+                        />
+                        &lt;Bar
+                            dataKey="calories"
+                            fill="#E60000"
+                            shape={&lt;RenderBar />}
+                            barSize={7}
+                            unit={'Kcal'}
+                        />
+                    &lt;/BarChart>
+                &lt;/ResponsiveContainer>
             }
         &lt;/div>
     )
@@ -194,7 +182,7 @@ Activity.propTypes = {
 
 <footer class="footer">
     <div class="content has-text-centered">
-        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Fri Mar 26 2021 13:09:34 GMT+0100 (heure normale d’Europe centrale)</p>
+        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Tue Apr 06 2021 12:31:11 GMT+0200 (heure d’été d’Europe centrale)</p>
         <p class="sidebar-created-by">
             <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
             <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>

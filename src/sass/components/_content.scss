@@ -1,0 +1,36 @@
+.content {
+	margin-left: 118px;
+	margin-top: 85px;
+	padding-top: 68px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding-right: 90px;
+	.infos {
+		width: 258px;
+	}
+	.graphs {
+		display: flex;
+		align-items: self-start;
+		flex: 1;
+		margin-right: 31px;
+		margin-bottom: 30px;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.activity {
+		width: 100%;
+		margin-bottom: 28px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.score,
+	.timing,
+	.intensity {
+		max-width: calc(100% / 3 - 10px * 3);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

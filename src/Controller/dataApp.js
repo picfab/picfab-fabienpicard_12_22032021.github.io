@@ -1,7 +1,7 @@
 /**
  * url of this APP
  * @category 1 - Constant
- * @type {string} url App
+ * @type {string} url API
  */
 const url = 'http://localhost:3000'
 
@@ -10,7 +10,7 @@ const url = 'http://localhost:3000'
  * @category 1 - Constant
  * @type {number} the user id for load him
  */
-const userId = 12
+const userId = 18
 
 /**
  * requestOptions for fetching

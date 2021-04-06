@@ -61,53 +61,57 @@
 </header>
 
 <article>
-    <h3>FIRST go to download the nodeServer</h3>
+    <h2>FIRST go to download the nodeServer</h2>
 <p><a href="https://github.com/picfab/P9-front-end-dashboard">https://github.com/picfab/P9-front-end-dashboard</a></p>
-<p>Project 9 - Front-end Dashboard
-This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.</p>
-<ol>
-<li>
-<p>General information
-To start this project, you are free to use Docker or not. In this documentation, we will see several methods to launch the project easily.</p>
-</li>
-<li>
-<p>Project (without Docker)
-2.1 Prerequisites
-NodeJS (version 12.18)
-Yarn
-If you are working with several versions of NodeJS, we recommend you install nvm. This tool will allow you to easily manage your NodeJS versions.</p>
-</li>
-</ol>
-<p>2.2 Launching the project
-Fork the repository
-Clone it on your computer.
-The yarn command will allow you to install the dependencies.
-The yarn dev command will allow you to run the micro API.
-3. Project (with Docker)
-2.1 Prerequisites
-Docker Desktop
-2.2 Starting the project
-The docker image build --no-cache -t micro-api . command will allow you to build your image.
-The docker container run --name micro-api -p 3000:3000 -dt micro-api yarn command will allow you to create your Docker container and run your image on port 3000.
-The docker container stop micro-api command will allow you to stop your micro-api.
-The docker container rm micro-api command will allow you to delete your micro-api container.
-2.3 Vscode and container remotes
-Finally, if you have VsCode, you can easily launch your project in a docker environment.</p>
-<p>You will need the Remote Development extension. Once you have this extension installed, just click on the Reopen in Container button.</p>
-<p>Once in the container, run the yarn dev command.</p>
-<ol start="4">
-<li>Endpoints
-4.1 Possible endpoints
-This project includes four endpoints that you will be able to use:</li>
-</ol>
-<p>http://localhost:3000/user/${userId} - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).
-http://localhost:3000/user/${userId}/activity - retrieves a user's activity day by day with kilograms and calories.
-http://localhost:3000/user/${userId}/average-sessions - retrieves the average sessions of a user per day. The week starts on Monday.
-http://localhost:3000/user/${userId}/performance - retrieves a user's performance (energy, endurance, etc.).
-Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.</p>
-<p>4.2 Examples of queries
-http://localhost:3000/user/12/performance - Retrieves the performance of the user with id 12
-http://localhost:3000/user/18 - Retrieves user 18's main information.</p>
+<h1>Project 9 - Front-end Dashboard</h1>
+<p>This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.</p>
+<h2>1. General information</h2>
+<p>To start this project, you are free to use Docker or not. In this documentation, we will see several methods to launch the project easily.</p>
+<h2>2. Project (<strong>without Docker</strong>)</h2>
+<h3>2.1 Prerequisites</h3>
+<ul>
+<li><a href="https://nodejs.org/en/">NodeJS (<strong>version 12.18</strong>)</a></li>
+<li><a href="https://yarnpkg.com/">Yarn</a></li>
+</ul>
+<p>If you are working with several versions of NodeJS, we recommend you install <a href="https://github.com/nvm-sh/nvm">nvm</a>. This tool will allow you to easily manage your NodeJS versions.</p>
+<h3>2.2 Launching the project</h3>
+<ul>
+<li>Fork the repository</li>
+<li>Clone it on your computer.</li>
+<li>The <code>yarn</code> command will allow you to install the dependencies.</li>
+<li>The <code>yarn dev</code> command will allow you to run the micro API.</li>
+</ul>
+<h2>3. Project (<strong>with Docker</strong>)</h2>
+<h3>2.1 Prerequisites</h3>
+<ul>
+<li><a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a></li>
+</ul>
+<h3>2.2 Starting the project</h3>
+<ul>
+<li>The <code>docker image build --no-cache -t micro-api .</code> command will allow you to build your image.</li>
+<li>The <code>docker container run --name micro-api -p 3000:3000 -dt micro-api yarn</code> command will allow you to create your Docker container and run your image on port 3000.</li>
+<li>The <code>docker container stop micro-api</code> command will allow you to stop your micro-api.</li>
+<li>The <code>docker container rm micro-api</code> command will allow you to delete your micro-api container.</li>
+</ul>
+<h3>2.3 Vscode and container remotes</h3>
+<p>Finally, if you have VsCode, you can easily launch your project in a docker environment.</p>
+<p>You will need the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development extension</a>. Once you have this extension installed, just click on the <code>Reopen in Container</code> button.</p>
+<p>Once in the container, run the <code>yarn dev</code> command.</p>
+<h2>4. Endpoints</h2>
+<h3>4.1 Possible endpoints</h3>
+<p>This project includes four endpoints that you will be able to use:</p>
+<ul>
+<li><code>http://localhost:3000/user/${userId}</code> - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).</li>
+<li><code>http://localhost:3000/user/${userId}/activity</code> - retrieves a user's activity day by day with kilograms and calories.</li>
+<li><code>http://localhost:3000/user/${userId}/average-sessions</code> - retrieves the average sessions of a user per day. The week starts on Monday.</li>
+<li><code>http://localhost:3000/user/${userId}/performance</code> - retrieves a user's performance (energy, endurance, etc.).</li>
+</ul>
+<p><strong>Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.</strong></p>
+<h3>4.2 Examples of queries</h3>
+<ul>
+<li><code>http://localhost:3000/user/12/performance</code> - Retrieves the performance of the user with id 12</li>
+<li><code>http://localhost:3000/user/18</code> - Retrieves user 18's main information.</li>
+</ul>
 </article>
 
 </section>
@@ -119,7 +123,7 @@ http://localhost:3000/user/18 - Retrieves user 18's main information.</p>
 
 <footer class="footer">
     <div class="content has-text-centered">
-        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Fri Mar 26 2021 13:09:35 GMT+0100 (heure normale d’Europe centrale)</p>
+        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Tue Apr 06 2021 12:31:11 GMT+0200 (heure d’été d’Europe centrale)</p>
         <p class="sidebar-created-by">
             <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
             <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>

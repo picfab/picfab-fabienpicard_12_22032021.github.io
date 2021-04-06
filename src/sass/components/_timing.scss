@@ -1,0 +1,25 @@
+.timing {
+	background: #ff0000;
+	aspect-ratio: 1 / 1;
+	width: 500px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	overflow: hidden;
+	.recharts-legend-wrapper {
+		color: #fff;
+		opacity: 0.5;
+	}
+	text,
+	.recharts-legend-wrapper {
+		fill: #fff;
+		fill-opacity: 0.5;
+	}
+	.recharts-cartesian-axis-tick-value {
+		transform: translate(0, -30px);
+	}
+	.recharts-line-curve {
+		stroke-linecap: round;
+	}
+}

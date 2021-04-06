@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 /**
  * Create the custom Bar
  * See parent component :<br>
@@ -32,6 +32,6 @@ RenderBar.propTypes = {
     y: PropTypes.number,
     width: PropTypes.number,
     height: PropTypes.number,
-};
+}
 
 export default RenderBar

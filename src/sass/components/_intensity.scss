@@ -1,0 +1,16 @@
+.intensity {
+	background: #282d30;
+	.recharts-polar-grid-angle {
+		display: none;
+	}
+	.recharts-text {
+		z-index: 1111;
+		position: absolute;
+		color: #fff;
+    font-size: 12px;
+		fill: #fff;
+	}
+	.recharts-polar-angle-axis-tick:nth-of-type(4) .recharts-text {
+		transform: translate(0, 20px);
+	}
+}

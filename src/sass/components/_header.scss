@@ -1,0 +1,26 @@
+.header {
+	width: 100%;
+	margin-bottom: 77px;
+	&__title {
+		font-family: Roboto;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 24px;
+		letter-spacing: 0px;
+		text-align: left;
+	}
+	&__name {
+		color: #e60000;
+	}
+	&__message {
+		margin-top: 41px;
+		font-family: Roboto;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 24px;
+		letter-spacing: 0px;
+		text-align: left;
+	}
+}

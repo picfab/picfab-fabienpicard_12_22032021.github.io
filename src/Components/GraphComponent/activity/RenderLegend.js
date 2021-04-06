@@ -27,6 +27,6 @@ const RenderLegend = () => {
                     </span>
             </span>
         </div>
-    );
+    )
 }
 export default RenderLegend

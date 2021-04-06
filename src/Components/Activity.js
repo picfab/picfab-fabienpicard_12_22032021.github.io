@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import { useEffect, useRef, useState } from "react"
 import Spinner from './Spinner'
 import {
     BarChart,
@@ -8,7 +7,8 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend
+    Legend,
+    ResponsiveContainer
 } from "recharts"
 import { RenderTooltip, RenderBar, RenderLegend } from './GraphComponent/activity'
 
@@ -30,73 +30,61 @@ import { RenderTooltip, RenderBar, RenderLegend } from './GraphComponent/activit
  * return ( <Activity data={data}/> )
  */
 export default function Activity({ data }) {
-    const [width, setWidth] = useState(null)
-    const graphRef = useRef(null)
-    /**
-     * Set the width of this component
-     */
-    useEffect(() => {
-        const { offsetWidth } = graphRef.current
-        if (width !== offsetWidth) {
-            setWidth(offsetWidth)
-        }
-    }, [width])
 
     return (
         <div
-            ref={graphRef}
             className="activity"
         >
             {!data ? <Spinner /> :
-                <BarChart
-                    width={width}
-                    height={width * 38 / 100}
-                    data={data}
-                    margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5
-                    }}
-                >
-                    <CartesianGrid
-                        strokeDasharray="2 2"
-                        vertical={false}
-                    />
-                    <XAxis
-                        dataKey="name"
-                        axisLine={true}
-                        tickLine={false}
-                    />
-                    <YAxis
-                        axisLine={false}
-                        tickLine={false}
-                        orientation={'right'}
-                    />
-                    <Tooltip
-                        content={<RenderTooltip />}
-                    />
-                    <Legend
-                        content={<RenderLegend />}
-                        verticalAlign="top"
-                        align="right"
-                        height={80}
-                    />
-                    <Bar
-                        dataKey="kilogram"
-                        fill="#282D30"
-                        shape={<RenderBar />}
-                        barSize={7}
-                        unit={'kg'}
-                    />
-                    <Bar
-                        dataKey="calories"
-                        fill="#E60000"
-                        shape={<RenderBar />}
-                        barSize={7}
-                        unit={'Kcal'}
-                    />
-                </BarChart>
+                <ResponsiveContainer aspect={998/382}>
+                    <BarChart
+                        data={data}
+                        margin={{
+                            top: 5,
+                            right: 30,
+                            left: 20,
+                            bottom: 5
+                        }}
+                    >
+                        <CartesianGrid
+                            strokeDasharray="2 2"
+                            vertical={false}
+                        />
+                        <XAxis
+                            dataKey="name"
+                            axisLine={true}
+                            tickLine={false}
+                        />
+                        <YAxis
+                            axisLine={false}
+                            tickLine={false}
+                            orientation={'right'}
+                        />
+                        <Tooltip
+                            content={<RenderTooltip />}
+                        />
+                        <Legend
+                            content={<RenderLegend />}
+                            verticalAlign="top"
+                            align="right"
+                            height={80}
+                        />
+                        <Bar
+                            dataKey="kilogram"
+                            fill="#282D30"
+                            shape={<RenderBar />}
+                            barSize={7}
+                            unit={'kg'}
+                        />
+                        <Bar
+                            dataKey="calories"
+                            fill="#E60000"
+                            shape={<RenderBar />}
+                            barSize={7}
+                            unit={'Kcal'}
+                        />
+                    </BarChart>
+                </ResponsiveContainer>
             }
         </div>
     )

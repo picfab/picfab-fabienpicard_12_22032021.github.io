@@ -4,9 +4,6 @@
 
 See the documentation here : [Server for the API](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs/tutorial-instal-server-api-tutorial.html)
 
-If your server is not on `http://localhost:3002/`
-You have to change the url for the API in file `src/Controller/dataApp.js`
-
 ## Documentation
 
 You can find the documentation for all components [here](https://picfab.github.io/picfab-fabienpicard_12_22032021.github.io/docs)
@@ -26,9 +23,13 @@ In the project directory, you can run:
 ### `yarn start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
-The page will reload if you make edits.\
+**If your server is not on `http://localhost:3001/`
+You have to change the url for the API in file `src/Controller/dataApp.js`**
+before launch `yarn start`
+
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 ### `yarn test`
@@ -85,7 +86,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-```
-
-```

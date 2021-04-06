@@ -20,6 +20,6 @@ const style = {
         height: '100%',
         color: 'grey',
     },
-};
+}
 
 export default style

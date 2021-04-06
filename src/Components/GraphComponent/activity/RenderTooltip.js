@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 /**
  * Create a custom tooltip
@@ -21,18 +21,18 @@ const RenderTooltip = ({ active, payload }) => {
             <div className="tooltip">
                 {payload.map((item, i) => <div key={i} className="tooltip__text">{item.value} {item.unit}</div>)}
             </div>
-        );
+        )
     }
-    return null;
+    return null
 }
 
 RenderTooltip.propTypes = {
     active: PropTypes.bool,
     payload: PropTypes.arrayOf(
         PropTypes.shape({
-                value: PropTypes.number,
-                unit: PropTypes.string
-            })
+            value: PropTypes.number,
+            unit: PropTypes.string
+        })
     )
 }
 
