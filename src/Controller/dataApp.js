@@ -1,21 +1,21 @@
 /**
- * url of this APP
+ * url of the API
  * @category 1 - Constant
- * @type {string} url API
+ * @type {string}
  */
 const url = 'http://localhost:3000'
 
 /**
- * userID
+ * The user id for load him
  * @category 1 - Constant
- * @type {number} the user id for load him
+ * @type {number}
  */
 const userId = 18
 
 /**
- * requestOptions for fetching
+ * requestOptions - options for the request fetch
  * @category 1 - Constant
- * @type {object} options for the request fetch
+ * @type {object}
  */
 const requestOptions = {
     method: 'GET',
