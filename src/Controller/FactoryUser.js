@@ -7,7 +7,9 @@ import { url, requestOptions } from './dataApp'
  * Factory for create a new User
  * You can do this for create a new instance :<br>
  * const factUser = new FactoryUser();<br>
- * factUser.CreateElement(userID);
+ * factUser.CreateElement(userID);<br>
+ * Becarefull !<br>
+ * For simulate fetching they have 2 setTimeout on line 51 and 245
  * @class FactoryUser
  * @category 2 - Factory
  * @see {@link CreateElement} for construct an user
@@ -239,6 +241,7 @@ export default function FactoryUser() {
                     if (!user.score) {
                         user.score = user.todayScore ? user.todayScore : 0
                     }
+                    // setTimeout for simulate the wait of answer
                     setTimeout(() => {
                         resole(user)
                     }, 2000)
