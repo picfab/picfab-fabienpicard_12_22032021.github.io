@@ -12,10 +12,10 @@
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
 		"postcss-modules": "^4.0.0",
-		"react": "^16.8.0",
-		"react-dom": "^16.8.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
 		"react-resize-detector": "^6.6.4",
-		"react-scripts": "4.0.3",
+		"react-scripts": "^4.0.3",
 		"recharts": "^2.0.8",
 		"web-vitals": "^1.0.1"
 	},
@@ -25,7 +25,7 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"doc": "jsdoc -c jsdoc.json",
-		"doccss": "node-sass --include-path scss ./src/sass/main.scss ./docs/styles.css"
+		"doccss": "node-sass --include-path scss ./src/sass/doc.scss ./docs/styles.css"
 	},
 	"browserslist": {
 		"production": [
@@ -46,7 +46,7 @@
 		"@typescript-eslint/parser": "^4.19.0",
 		"babel-eslint": "^10.1.0",
 		"babel-loader": "8.1.0",
-		"better-docs": "^2.3.2",
+		"better-docs": "^1.2.2",
 		"eslint": "^7.23.0",
 		"eslint-config-prettier": "^8.1.0",
 		"eslint-config-react-app": "^6.0.0",

@@ -1,0 +1,22 @@
+@import './main.scss';
+
+// jsdoc
+
+.frame-content {
+	padding: 20px;
+	position: relative;
+}
+.container {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	li {
+		font-size: 1.5em !important;
+	}
+}
+
+
