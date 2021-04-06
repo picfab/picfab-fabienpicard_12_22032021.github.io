@@ -1,7 +1,7 @@
 /**
  * Custom style in js of components
  * @see [Activity](Components_Activity.js.html) component in Activity.js
- * @see [Timing](Components_Timing.js.html) component in Activity.js
+ * @see [Timing](Components_Timing.js.html) component in Timing.js
  * @category 1 - Constant
  * @type {constent}
  */
