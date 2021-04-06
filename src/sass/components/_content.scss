@@ -1,12 +1,16 @@
 .content {
-	margin-left: 118px;
-	margin-top: 85px;
-	padding-top: 68px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-  align-items: flex-start;
-	padding-right: 90px;
+    margin-top: 85px;
+    padding-top: 68px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 120px;
+    padding-right: 30px;
+  @media (min-width:1200px) {
+    margin-left: 226px;
+    padding-right: 90px;
+  }
 	.infos {
 		width: 258px;
 	}

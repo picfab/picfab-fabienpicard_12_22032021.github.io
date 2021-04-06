@@ -30,9 +30,15 @@ export default function App() {
       setUser(newUser)
       newUser.loadActivity()
         .then((user) => setUser({ ...user }))
-      newUser.loadIntensity()
-        .then((user) => setUser({ ...user }))
       newUser.loadTiming()
+        .then((user) => setUser({ ...user }))
+      // newUser.loadIntensity()
+      //   .then((user) => setUser({ ...user }))
+      newUser.loadActivities()
+        .then((user) => setUser({ ...user }))
+      newUser.loadKeyData()
+        .then((user) => setUser({ ...user }))
+      newUser.loadTodayScore()
         .then((user) => setUser({ ...user }))
     })
   }, [])
@@ -55,10 +61,14 @@ export default function App() {
                 <Score score={user.score} />
               </div>
               <aside className="infos">
-                <Info value={`${user.keyData.calorieCount} kCal`} title="calories" />
-                <Info value={`${user.keyData.proteinCount} g`} title="proteines" color="#4AB8FF" />
-                <Info value={`${user.keyData.carbohydrateCount} g`} title="glucides" color="#FDCC0C" />
-                <Info value={`${user.keyData.lipidCount} g`} title="lipides" color="#FD5181" />
+                { !user.keyData ? <Spinner/> :
+                  <>
+                    <Info value={`${user.keyData.calorieCount} kCal`} title="calories" />
+                    <Info value={`${user.keyData.proteinCount} g`} title="proteines" color="#4AB8FF" />
+                    <Info value={`${user.keyData.carbohydrateCount} g`} title="glucides" color="#FDCC0C" />
+                    <Info value={`${user.keyData.lipidCount} g`} title="lipides" color="#FD5181" />
+                  </>
+                }
               </aside>
             </>
           }

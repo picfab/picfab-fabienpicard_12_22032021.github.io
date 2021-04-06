@@ -269,7 +269,7 @@ table {
     margin-bottom: 20px; }
   .menuVert__credits {
     position: absolute;
-    bottom: 0;
+    bottom: 32px;
     transform: rotate(-90deg);
     transform-origin: top left;
     color: #fff;
@@ -405,14 +405,18 @@ table {
     stroke-linecap: round; }
 
 .content {
-  margin-left: 118px;
   margin-top: 85px;
   padding-top: 68px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  padding-right: 90px; }
+  margin-left: 120px;
+  padding-right: 30px; }
+  @media (min-width: 1200px) {
+    .content {
+      margin-left: 226px;
+      padding-right: 90px; } }
   .content .infos {
     width: 258px; }
   .content .graphs {

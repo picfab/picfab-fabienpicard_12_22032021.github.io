@@ -45,6 +45,7 @@ export default function FactoryUser() {
                 .then(result => {
                     const newAttr = attrName ? attrName : slug.replaceAll('-', '')
                     user[newAttr] = user[modififyResponse](result.data)
+                    // setTimeout for simulate the wait of answer
                     setTimeout(() => {
                         resole(user)
                     }, 2000)
@@ -67,7 +68,7 @@ export default function FactoryUser() {
          * @return {Promise} user
          */
         user.loadTiming = () => new Promise((resole, reject) => {
-            user.loadData('average-sessions', 'normalChange', 'timing')
+            user.loadData('average-sessions', 'sessionChange', 'timing')
                 .then(user => resole(user))
         })
 
@@ -80,7 +81,7 @@ export default function FactoryUser() {
          * @return {Promise} user
          */
         user.loadActivity = () => new Promise((resole, reject) => {
-            user.loadData('activity', 'normalChange')
+            user.loadData('activity', 'sessionChange')
                 .then(user => resole(user))
         })
 
@@ -98,7 +99,58 @@ export default function FactoryUser() {
         })
 
         /**
-         * Transform the data in correct schema
+         * Promise who return the data for graph Intensity
+         * @method loadActivities
+         * @see [loadData](#~loadData) For load an user
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html)  For instantiate the Factory
+         * @return {Promise} user
+         */
+         user.loadActivities = () => new Promise((resole, reject) => {
+            user.loadData('activities', 'intensityChange', 'intensity')
+                .then(user => resole(user))
+        })
+
+        /**
+         * Promise who return the data for right cards
+         * @method loadKeyData
+         * @see [loadData](#~loadData) For load an user
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html)  For instantiate the Factory
+         * @return {Promise} user
+         */
+         user.loadKeyData = () => new Promise((resole, reject) => {
+            user.loadData('key-data', 'normalChange', 'keyData')
+                .then(user => resole(user))
+        })
+
+        /**
+         * Promise who return the data for graph Score graph
+         * @method loadKeyData
+         * @see [loadData](#~loadData) For load an user
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html)  For instantiate the Factory
+         * @return {Promise} user
+         */
+         user.loadTodayScore = () => new Promise((resole, reject) => {
+            user.loadData('today-score', 'normalChange', 'todayScore')
+                .then(user => resole(user))
+        })
+
+        /**
+         * Transform the data in correct schema (the data attribute is "sessions")
+         * @method sessionChange
+         * @see [loadData](#~loadData) For load an user
+         * @see [CreateElement](#~CreateElement) For create an user
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html)  For instantiate the Factory
+         * @return {object} data in correct schema
+         */
+        user.sessionChange = (data) => {
+            return data.sessions
+        }
+
+        /**
+         * Transform the data in correct schema (the data attribute is "data")
          * @method normalChange
          * @see [loadData](#~loadData) For load an user
          * @see [CreateElement](#~CreateElement) For create an user
@@ -106,7 +158,7 @@ export default function FactoryUser() {
          * @return {object} data in correct schema
          */
         user.normalChange = (data) => {
-            return data.sessions
+            return data.data
         }
 
         /**
