@@ -11,6 +11,7 @@ import {
     Legend,
     ResponsiveContainer
 } from "recharts"
+import { style } from './GraphComponent/style'
 
 /**
  * First letter of the weekday
@@ -133,11 +134,7 @@ export default function Timing({ data }) {
                         <Tooltip
                             viewBox={{ x: 0, y: 0, width: 50, height: 100 }}
                             cursor={false}
-                            wrapperStyle={{
-                                background: '#fff',
-                                padding: '7px',
-                                width: '100px',
-                            }}
+                            wrapperStyle={style.timingTooltip}
                             content={<RenderTooltip />}
                         />
 
@@ -156,12 +153,7 @@ export default function Timing({ data }) {
                             content={renderLegend}
                             verticalAlign="middle"
                             align="left"
-                            wrapperStyle={{
-                                top: '10%',
-                                width: '75%',
-                                textAlign: 'left',
-                                left: '10%',
-                            }}
+                            wrapperStyle={style.timingLegend}
                         />
                         <Line
                             dot={false}
@@ -183,9 +175,8 @@ export default function Timing({ data }) {
 
 Timing.propTypes = {
     /**
-     * Not see this, watch Parameters and Properties <br>
-     * Comments PropTypes.shape is not working with jsDoc
-     * @ignore
+     * Array of sessions objects with properties :<br>
+     * { day: {number}, duration: {number}}
      */
     data: PropTypes.arrayOf(PropTypes.shape({
         /**

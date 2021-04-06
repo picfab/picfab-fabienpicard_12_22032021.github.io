@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types'
 /**
  * Create the custom Bar
- * See parent component :<br>
- * <a href="./module-Activity.html">Activity</a>
  * @component
  * @category 4.1 - Activity child components
+ * @see [Activity](module-Activity.html) parent component
  * @see {@link https://recharts.org/en-US/examples/CustomShapeBarChart}
  * @param {object} props Send by Bar component
  * @prop {string} fill

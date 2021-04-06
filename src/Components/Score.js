@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types'
 import { ResponsiveContainer,RadialBarChart, RadialBar, Legend } from "recharts"
-import { RenderLegendScore, style } from "./GraphComponent/score"
-
+import { RenderLegendScore } from "./GraphComponent/score"
+import {style} from "./GraphComponent/style"
 /**
  * Use Activity component for create the graph activity
- * See other component use in this one :<br>
- * <a href="./module-Score_RenderLegend.html">RenderLegend</a><br>
- * <a href="./global.html#style">style</a><br>
+ * @see [RenderLegendScore](RenderLegendScore.html)
  * @module Score
  * @component
  * @category 4 - Recharts

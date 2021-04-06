@@ -1,9 +1,8 @@
 /**
  * Function use by Legend component
- * See parent component :<br>
- * <a href="./module-Activity.html">Activity</a>
  * @component
  * @category 4.1 - Activity child components
+ * @see [Activity](module-Activity.html) parent component
  * @see {@link https://recharts.org/en-US/api/Legend#content}
  * @example
  * return ( <RenderLegend /> )

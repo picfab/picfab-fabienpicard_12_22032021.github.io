@@ -59,9 +59,8 @@ export default function Intensity({ data }) {
 
 Intensity.propTypes = {
     /**
-     * Not see this, watch Parameters and Properties <br>
-     * Comments PropTypes.shape is not working with jsDoc
-     * @ignore
+     * Array of performance objects with properties :<br>
+     *{label : {string}, labelfr : {string}, value : {number}}
      */
     data: PropTypes.arrayOf(PropTypes.shape({
         label: PropTypes.string.isRequired,

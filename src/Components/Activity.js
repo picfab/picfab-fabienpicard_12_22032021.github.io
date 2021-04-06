@@ -14,10 +14,9 @@ import { RenderTooltip, RenderBar, RenderLegend } from './GraphComponent/activit
 
 /**
  * Use Activity component for create the graph activity
- * See other component use in this one :<br>
- * <a href="./module-Activity_RenderBar.html">RenderBar</a><br>
- * <a href="./module-Activity_RenderLegend.html">RenderLegend</a><br>
- * <a href="./module-Activity_RenderTooltip.html">RenderTooltip</a>
+ * @see [RenderBar](RenderBar.html)
+ * @see [RenderLegend](RenderLegend.html)
+ * @see [RenderTooltip](RenderTooltip.html)
  * @module Activity
  * @component
  * @category 4 - Recharts
@@ -93,9 +92,8 @@ export default function Activity({ data }) {
 
 Activity.propTypes = {
     /**
-     * Not see this, watch Parameters and Properties <br>
-     * Comments PropTypes.shape is not working with jsDoc
-     * @ignore
+     * Array of sessions objects with properties :<br>
+     * {day: {string}, kilogram : {number}, calories : {number}}
      */
     data: PropTypes.arrayOf(PropTypes.shape({
         day: PropTypes.string.isRequired,

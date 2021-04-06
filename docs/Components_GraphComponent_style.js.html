@@ -5,7 +5,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>JSDoc: Components/GraphComponent/activity/RenderTooltip.js</title>
+    <title>JSDoc: Components/GraphComponent/style.js</title>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -53,7 +53,7 @@
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
                         <p>Source</p>
-                        <h1>Components/GraphComponent/activity/RenderTooltip.js</h1>
+                        <h1>Components/GraphComponent/style.js</h1>
                     </header>
                     
                     
@@ -63,53 +63,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
-
-/**
- * Create a custom tooltip
- * @component
- * @category 4.1 - Activity child components
- * @see [Activity](module-Activity.html) parent component
- * @see {@link https://recharts.org/en-US/examples/CustomContentOfTooltip}
- * @param {object} props
- * @prop {array} payload Array of payload graph
- * @prop {bool} active true if tooltip is active
- * @example
- * const active = true;
- * const payload = [{unit: "kg",value: 69,},{unit: "Kcal",value: 162}];
- * return ( &lt;RenderTooltip payload={payload} active={active}/> )
+            <pre class="prettyprint source linenums"><code>/**
+ * Custom style in js of components
+ * @see [Activity](Components_Activity.js.html) component in Activity.js
+ * @see [Timing](Components_Timing.js.html) component in Activity.js
+ * @category 1 - Constant
+ * @type {constent}
  */
-const RenderTooltip = ({ active, payload }) => {
-    if (active &amp;&amp; payload &amp;&amp; payload.length) {
-        return (
-            &lt;div className="tooltip">
-                {payload.map((item, i) => &lt;div key={i} className="tooltip__text">{item.value} {item.unit}&lt;/div>)}
-            &lt;/div>
-        )
+ export const style = {
+    box: {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        lineHeight: "24px",
+        width: '100%',
+        height: '100%',
+        color: 'grey',
+    },
+    timingLegend:{
+        top: '10%',
+        width: '75%',
+        textAlign: 'left',
+        left: '10%',
+    },
+    timingTooltip:{
+        background: '#fff',
+        padding: '7px',
+        width: '100px',
     }
-    return null
 }
-
-RenderTooltip.propTypes = {
-    /**
-     * true if tooltip is active
-     */
-    active: PropTypes.bool,
-    /**
-    * List of Payloads with properties : &lt;br>
-    * {value : {number} , unit : {string}}
-    */
-    payload: PropTypes.arrayOf(
-        PropTypes.shape({
-            value: PropTypes.number,
-            unit: PropTypes.string
-        })
-    )
-}
-
-
-export default RenderTooltip
-
 
 </code></pre>
         </article>

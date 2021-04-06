@@ -43,7 +43,7 @@
             <div class="column is-3" id="sidebarNav">
                 <div class="sidebar">
                     <nav>
-                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-Instal server API.html">Instal server API</a></li></ul><h3>Components</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-Header.html">Header</a></li><li><a href="module-Info.html">Info</a></li><li><a href="module-Picto.html">Picto</a></li><li><a href="module-Spinner.html">Spinner</a></li></ul></div><div class="category"><h2>1 - Constant</h2><h3>Global</h3><ul><li><a href="global.html#requestOptions">requestOptions</a></li><li><a href="global.html#url">url</a></li><li><a href="global.html#userId">userId</a></li></ul></div><div class="category"><h2>2 - Factory</h2><h3>Modules</h3><ul><li><a href="module-FactoryUser.html">FactoryUser</a></li></ul><h3>Classes</h3><ul><li><a href="module-FactoryUser-FactoryUser.html">FactoryUser</a></li></ul></div><div class="category"><h2>3 - Navigation</h2><h3>Components</h3><ul><li><a href="module-Menu.html">Menu</a></li><li><a href="module-MenuVertical.html">MenuVertical</a></li></ul></div><div class="category"><h2>4 - Recharts</h2><h3>Components</h3><ul><li><a href="module-Activity.html">Activity</a></li><li><a href="module-Intensity.html">Intensity</a></li><li><a href="module-Score.html">Score</a></li><li><a href="module-Timing.html">Timing</a></li></ul></div><div class="category"><h2>4.1 - Activity child components</h2><h3>Components</h3><ul><li><a href="RenderBar.html">RenderBar</a></li><li><a href="RenderLegend.html">RenderLegend</a></li><li><a href="RenderTooltip.html">RenderTooltip</a></li></ul></div><div class="category"><h2>4.2 - Score child components</h2><h3>Components</h3><ul><li><a href="RenderLegendScore.html">RenderLegendScore</a></li></ul><h3>Global</h3><ul><li><a href="global.html#style">style</a></li></ul></div>
+                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-Instal server API tutorial.html">Instal server API tutorial</a></li></ul><h3>Components</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-Header.html">Header</a></li><li><a href="module-Info.html">Info</a></li><li><a href="module-Picto.html">Picto</a></li><li><a href="module-Spinner.html">Spinner</a></li></ul></div><div class="category"><h2>1 - Constant</h2><h3>Global</h3><ul><li><a href="global.html#requestOptions">requestOptions</a></li><li><a href="global.html#style">style</a></li><li><a href="global.html#url">url</a></li><li><a href="global.html#userId">userId</a></li></ul></div><div class="category"><h2>2 - Factory</h2><h3>Modules</h3><ul><li><a href="module-FactoryUser.html">FactoryUser</a></li></ul><h3>Classes</h3><ul><li><a href="module-FactoryUser-FactoryUser.html">FactoryUser</a></li></ul></div><div class="category"><h2>3 - Navigation</h2><h3>Components</h3><ul><li><a href="module-Menu.html">Menu</a></li><li><a href="module-MenuVertical.html">MenuVertical</a></li></ul></div><div class="category"><h2>4 - Recharts</h2><h3>Components</h3><ul><li><a href="module-Activity.html">Activity</a></li><li><a href="module-Intensity.html">Intensity</a></li><li><a href="module-Score.html">Score</a></li><li><a href="module-Timing.html">Timing</a></li></ul></div><div class="category"><h2>4.1 - Activity child components</h2><h3>Components</h3><ul><li><a href="RenderBar.html">RenderBar</a></li><li><a href="RenderLegend.html">RenderLegend</a></li><li><a href="RenderTooltip.html">RenderTooltip</a></li></ul></div><div class="category"><h2>4.2 - Score child components</h2><h3>Components</h3><ul><li><a href="RenderLegendScore.html">RenderLegendScore</a></li></ul></div>
                     </nav>
                 </div>
             </div>
@@ -89,9 +89,7 @@
     
     
     <div class="description">
-        <p>Create a custom tooltip
-See parent component :<br>
-<a href="./module-Activity.html">Activity</a></p>
+        <p>Create a custom tooltip</p>
     </div>
     
 
@@ -126,7 +124,7 @@ See parent component :<br>
             
           </td>
           <td>No</td>
-          <td></td>
+          <td>true if tooltip is active</td>
           <td></td>
         </tr>
         
@@ -138,7 +136,8 @@ See parent component :<br>
             
           </td>
           <td>No</td>
-          <td></td>
+          <td>List of Payloads with properties : <br>
+{value : {number} , unit : {string}}</td>
           <td></td>
         </tr>
         
@@ -293,7 +292,7 @@ See parent component :<br>
 
     
 
-    <td class="description last"><p>Array of payload graph</p></td>
+    <td class="description last"><p>true if tooltip is active</p></td>
 </tr>
 
     
@@ -334,6 +333,8 @@ See parent component :<br>
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
+            <li><p><a href="module-Activity.html">Activity</a> parent component</p></li>
+        
             <li><a href="https://recharts.org/en-US/examples/CustomContentOfTooltip">https://recharts.org/en-US/examples/CustomContentOfTooltip</a></li>
         </ul>
     </dd>
@@ -345,7 +346,7 @@ See parent component :<br>
         <p class="tag-source">
             <a href="Components_GraphComponent_activity_RenderTooltip.js.html" class="button">View Source</a>
             <span>
-                <a href="Components_GraphComponent_activity_RenderTooltip.js.html">Components/GraphComponent/activity/RenderTooltip.js</a>, <a href="Components_GraphComponent_activity_RenderTooltip.js.html#line18">line 18</a>
+                <a href="Components_GraphComponent_activity_RenderTooltip.js.html">Components/GraphComponent/activity/RenderTooltip.js</a>, <a href="Components_GraphComponent_activity_RenderTooltip.js.html#line17">line 17</a>
             </span>
         </p>
     
@@ -376,13 +377,13 @@ See parent component :<br>
     
         
 
-<div id='ic3d00v48jfkn62gd28'></div>
+<div id='lcmmvzbhqmbkn65dnns'></div>
 
 <script>
   ReactDOM.render(Wrapper({
     example: "const active = true;\nconst payload = [{unit: \"kg\",value: 69,},{unit: \"Kcal\",value: 162}];\nreturn ( <RenderTooltip payload={payload} active={active}/> )",
-    uniqId: "ic3d00v48jfkn62gd28",
-  }), document.getElementById('ic3d00v48jfkn62gd28'));
+    uniqId: "lcmmvzbhqmbkn65dnns",
+  }), document.getElementById('lcmmvzbhqmbkn65dnns'));
 </script>
     
 
@@ -427,7 +428,7 @@ See parent component :<br>
 
 <footer class="footer">
     <div class="content has-text-centered">
-        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Tue Apr 06 2021 15:36:35 GMT+0200 (heure d’été d’Europe centrale)</p>
+        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Tue Apr 06 2021 16:58:27 GMT+0200 (heure d’été d’Europe centrale)</p>
         <p class="sidebar-created-by">
             <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
             <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>

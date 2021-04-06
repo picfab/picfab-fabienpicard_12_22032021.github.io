@@ -1,11 +1,9 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     
     <meta charset="utf-8">
-    <title>JSDoc: Components/GraphComponent/activity/RenderTooltip.js</title>
+    <title>JSDoc: Instal server API tutorial</title>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -52,71 +50,71 @@
             <div class="column is-9-desktop">
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
-                        <p>Source</p>
-                        <h1>Components/GraphComponent/activity/RenderTooltip.js</h1>
+                        <p>Tutorial</p>
+                        <h1>Instal server API tutorial</h1>
                     </header>
                     
-                    
+                    <section>
 
-
-
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
+</header>
 
-/**
- * Create a custom tooltip
- * @component
- * @category 4.1 - Activity child components
- * @see [Activity](module-Activity.html) parent component
- * @see {@link https://recharts.org/en-US/examples/CustomContentOfTooltip}
- * @param {object} props
- * @prop {array} payload Array of payload graph
- * @prop {bool} active true if tooltip is active
- * @example
- * const active = true;
- * const payload = [{unit: "kg",value: 69,},{unit: "Kcal",value: 162}];
- * return ( &lt;RenderTooltip payload={payload} active={active}/> )
- */
-const RenderTooltip = ({ active, payload }) => {
-    if (active &amp;&amp; payload &amp;&amp; payload.length) {
-        return (
-            &lt;div className="tooltip">
-                {payload.map((item, i) => &lt;div key={i} className="tooltip__text">{item.value} {item.unit}&lt;/div>)}
-            &lt;/div>
-        )
-    }
-    return null
-}
+<article>
+    <h2>FIRST go to download the nodeServer</h2>
+<p><a href="https://github.com/picfab/P9-front-end-dashboard">https://github.com/picfab/P9-front-end-dashboard</a></p>
+<h1>Project 9 - Front-end Dashboard</h1>
+<p>This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.</p>
+<h2>1. General information</h2>
+<p>To start this project, you are free to use Docker or not. In this documentation, we will see several methods to launch the project easily.</p>
+<h2>2. Project (<strong>without Docker</strong>)</h2>
+<h3>2.1 Prerequisites</h3>
+<ul>
+<li><a href="https://nodejs.org/en/">NodeJS (<strong>version 12.18</strong>)</a></li>
+<li><a href="https://yarnpkg.com/">Yarn</a></li>
+</ul>
+<p>If you are working with several versions of NodeJS, we recommend you install <a href="https://github.com/nvm-sh/nvm">nvm</a>. This tool will allow you to easily manage your NodeJS versions.</p>
+<h3>2.2 Launching the project</h3>
+<ul>
+<li>Fork the repository</li>
+<li>Clone it on your computer.</li>
+<li>The <code>yarn</code> command will allow you to install the dependencies.</li>
+<li>The <code>yarn dev</code> command will allow you to run the micro API.</li>
+</ul>
+<h2>3. Project (<strong>with Docker</strong>)</h2>
+<h3>2.1 Prerequisites</h3>
+<ul>
+<li><a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a></li>
+</ul>
+<h3>2.2 Starting the project</h3>
+<ul>
+<li>The <code>docker image build --no-cache -t micro-api .</code> command will allow you to build your image.</li>
+<li>The <code>docker container run --name micro-api -p 3000:3000 -dt micro-api yarn</code> command will allow you to create your Docker container and run your image on port 3000.</li>
+<li>The <code>docker container stop micro-api</code> command will allow you to stop your micro-api.</li>
+<li>The <code>docker container rm micro-api</code> command will allow you to delete your micro-api container.</li>
+</ul>
+<h3>2.3 Vscode and container remotes</h3>
+<p>Finally, if you have VsCode, you can easily launch your project in a docker environment.</p>
+<p>You will need the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development extension</a>. Once you have this extension installed, just click on the <code>Reopen in Container</code> button.</p>
+<p>Once in the container, run the <code>yarn dev</code> command.</p>
+<h2>4. Endpoints</h2>
+<h3>4.1 Possible endpoints</h3>
+<p>This project includes four endpoints that you will be able to use:</p>
+<ul>
+<li><code>http://localhost:3000/user/${userId}</code> - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).</li>
+<li><code>http://localhost:3000/user/${userId}/activity</code> - retrieves a user's activity day by day with kilograms and calories.</li>
+<li><code>http://localhost:3000/user/${userId}/average-sessions</code> - retrieves the average sessions of a user per day. The week starts on Monday.</li>
+<li><code>http://localhost:3000/user/${userId}/performance</code> - retrieves a user's performance (energy, endurance, etc.).</li>
+</ul>
+<p><strong>Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.</strong></p>
+<h3>4.2 Examples of queries</h3>
+<ul>
+<li><code>http://localhost:3000/user/12/performance</code> - Retrieves the performance of the user with id 12</li>
+<li><code>http://localhost:3000/user/18</code> - Retrieves user 18's main information.</li>
+</ul>
+</article>
 
-RenderTooltip.propTypes = {
-    /**
-     * true if tooltip is active
-     */
-    active: PropTypes.bool,
-    /**
-    * List of Payloads with properties : &lt;br>
-    * {value : {number} , unit : {string}}
-    */
-    payload: PropTypes.arrayOf(
-        PropTypes.shape({
-            value: PropTypes.number,
-            unit: PropTypes.string
-        })
-    )
-}
-
-
-export default RenderTooltip
-
-
-</code></pre>
-        </article>
-    </section>
-
-
-
+</section>
 
                 </div>
             </div>
@@ -125,7 +123,7 @@ export default RenderTooltip
 
 <footer class="footer">
     <div class="content has-text-centered">
-        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Tue Apr 06 2021 16:58:27 GMT+0200 (heure d’été d’Europe centrale)</p>
+        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Tue Apr 06 2021 16:58:28 GMT+0200 (heure d’été d’Europe centrale)</p>
         <p class="sidebar-created-by">
             <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
             <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>

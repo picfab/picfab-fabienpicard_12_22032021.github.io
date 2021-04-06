@@ -32,7 +32,7 @@ export default function FactoryUser() {
         /**
          * Use this method for get user data
          * @see [CreateElement](#~CreateElement) For create an user
-         * @see [FactoryUser](#~FactoryUser) For instantiate the Factory
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html) For instantiate the Factory
          * @method loadData
          * @param {string} slug endpoint of the API
          * @param {func} modififyResponse function for return a good data schema
@@ -60,7 +60,7 @@ export default function FactoryUser() {
          * @method loadData
          * @see [loadData](#~loadData) For load an user
          * @see [CreateElement](#~CreateElement) For create an user
-         * @see [FactoryUser](#~FactoryUser) For instantiate the Factory
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html) For instantiate the Factory
          * @param {string} slug endpoint of the API
          * @param {func} modififyResponse function for return a good data schema
          * @param {string} attrName the name of where data will save in user object
@@ -76,7 +76,7 @@ export default function FactoryUser() {
          * @method loadActivity
          * @see [loadData](#~loadData) For load an user
          * @see [CreateElement](#~CreateElement) For create an user
-         * @see [FactoryUser](#~FactoryUser) For instantiate the Factory
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html) For instantiate the Factory
          * @return {Promise} user
          */
         user.loadActivity = () => new Promise((resole, reject) => {
@@ -89,7 +89,7 @@ export default function FactoryUser() {
          * @method loadIntensity
          * @see [loadData](#~loadData) For load an user
          * @see [CreateElement](#~CreateElement) For create an user
-         * @see [FactoryUser](#~FactoryUser)  For instantiate the Factory
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html)  For instantiate the Factory
          * @return {Promise} user
          */
         user.loadIntensity = () => new Promise((resole, reject) => {
@@ -102,7 +102,7 @@ export default function FactoryUser() {
          * @method normalChange
          * @see [loadData](#~loadData) For load an user
          * @see [CreateElement](#~CreateElement) For create an user
-         * @see [FactoryUser](#~FactoryUser)  For instantiate the Factory
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html)  For instantiate the Factory
          * @return {object} data in correct schema
          */
         user.normalChange = (data) => {
@@ -114,7 +114,7 @@ export default function FactoryUser() {
          * @method intensityChange
          * @see [loadData](#~loadData) For load an user
          * @see [CreateElement](#~CreateElement) For create an user
-         * @see [FactoryUser](#~FactoryUser)  For instantiate the Factory
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html)  For instantiate the Factory
          * @return {object} data in correct schema
          */
         user.intensityChange = (data) => {
@@ -140,7 +140,7 @@ export default function FactoryUser() {
          * @method timingChange
          * @see [loadData](#~loadData) For load an user
          * @see [CreateElement](#~CreateElement) For create an user
-         * @see [FactoryUser](#~FactoryUser)  For instantiate the Factory
+         * @see [FactoryUser](module-FactoryUser-FactoryUser.html)  For instantiate the Factory
          * @return {object} data in correct schema
          */
         user.timingChange = (data) => {

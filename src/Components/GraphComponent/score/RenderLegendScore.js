@@ -30,6 +30,9 @@ const numberBetween = (props, propName) => {
 }
 
 RenderLegendScore.propTypes = {
+    /**
+     * Array of payloads. For the composant Score only first index used.
+     */
     payload: PropTypes.arrayOf(PropTypes.shape({
         payload: PropTypes.shape({
             value: numberBetween

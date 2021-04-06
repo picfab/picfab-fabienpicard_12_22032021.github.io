@@ -2,14 +2,13 @@ import PropTypes from 'prop-types'
 
 /**
  * Create a custom tooltip
- * See parent component :<br>
- * <a href="./module-Activity.html">Activity</a>
  * @component
  * @category 4.1 - Activity child components
+ * @see [Activity](module-Activity.html) parent component
  * @see {@link https://recharts.org/en-US/examples/CustomContentOfTooltip}
  * @param {object} props
  * @prop {array} payload Array of payload graph
- * @prop {bool} active Array of payload graph
+ * @prop {bool} active true if tooltip is active
  * @example
  * const active = true;
  * const payload = [{unit: "kg",value: 69,},{unit: "Kcal",value: 162}];
@@ -27,7 +26,14 @@ const RenderTooltip = ({ active, payload }) => {
 }
 
 RenderTooltip.propTypes = {
+    /**
+     * true if tooltip is active
+     */
     active: PropTypes.bool,
+    /**
+    * List of Payloads with properties : <br>
+    * {value : {number} , unit : {string}}
+    */
     payload: PropTypes.arrayOf(
         PropTypes.shape({
             value: PropTypes.number,
