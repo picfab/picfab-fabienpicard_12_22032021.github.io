@@ -95,9 +95,10 @@ export default function Timing({ data }) {
      */
     const ReferenceBands = (props) => {
         const { x } = props
-        const { width } = graphRef.current
+        const { offsetWidth } = graphRef.current
+        console.log(offsetWidth);
         return (
-            <path fillOpacity={.1} d={`M ${x},0 h ${width} v ${width} h -${width} Z`}></path>
+            <path fillOpacity={.1} d={`M ${x},0 h ${offsetWidth} v ${offsetWidth} h -${offsetWidth} Z`}></path>
         )
     }
 
@@ -157,7 +158,7 @@ export default function Timing({ data }) {
                             align="left"
                             wrapperStyle={{
                                 top: '10%',
-                                width: '50%',
+                                width: '75%',
                                 textAlign: 'left',
                                 left: '10%',
                             }}

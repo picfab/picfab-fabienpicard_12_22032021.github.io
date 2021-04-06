@@ -33,7 +33,7 @@ export default function Intensity({ data }) {
                     <RadarChart
                         data={data}
                         margin={
-                            { top:35, right:35, bottom:35, left:35 }
+                            { top:36, right:36, bottom:36, left:36 }
                         }
                     >
                         <PolarAngleAxis
