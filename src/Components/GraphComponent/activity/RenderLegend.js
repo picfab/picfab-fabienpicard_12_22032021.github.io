@@ -1,5 +1,5 @@
 /**
- * Function use by Legend component
+ * Component use by Legend component
  * @component
  * @category 4.1 - Activity child components
  * @see [Activity](module-Activity.html) parent component

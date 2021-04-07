@@ -20,7 +20,7 @@ You have to change the url for the API in file `src/Controller/dataApp.js` befor
 
 ## Project build with Create React App,
 
-### In console launch `yarn install'
+In console launch ``yarn install``
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
