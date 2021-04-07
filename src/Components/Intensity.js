@@ -24,10 +24,8 @@ import {
  * return ( <Intensity data={data}/> )
  */
 export default function Intensity({ data }) {
-    const graphRef = useRef(null)
     return (
-        <div className="intensity"
-            ref={graphRef}>
+        <div className="intensity">
             {!data ? <Spinner /> :
                 <ResponsiveContainer aspect={1/1}>
                     <RadarChart

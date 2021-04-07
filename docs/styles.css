@@ -8,6 +8,11 @@
   src: url("Fonts/Roboto-Bold.ttf") format("truetype");
   font-weight: bold; }
 
+@font-face {
+  font-family: 'roboto';
+  src: url("Fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500; }
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
